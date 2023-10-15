@@ -1,6 +1,7 @@
 package com.github.tqs;
 
 import com.github.tqs.exceptions.InvalidWordException;
+import com.github.tqs.exceptions.NoWordsException;
 import com.github.tqs.exceptions.NotEnoughWordsException;
 import com.github.tqs.exceptions.UnableToReadWordsException;
 
@@ -11,7 +12,7 @@ public class WordProvider {
     private BufferedReader bufferedReader;
     private int minimumWords;
 
-    WordProvider(int minimumWords){
+    public WordProvider(int minimumWords){
         this.minimumWords=minimumWords;
     }
 
@@ -42,9 +43,22 @@ public class WordProvider {
         }
     }
 
-    public String getNextWord(){
+    public String getNextWord() throws IOException, NoWordsException {
+        String word=null;
         while(true){
-            
+            word = bufferedReader.readLine();
+
+            if (word==null) {
+                throw new NoWordsException();
+            }
+
+            try{
+                checkWord(word);
+                return word;
+            } catch (InvalidWordException e) {
+                throw new RuntimeException(e);
+            }
+
         }
     }
 
