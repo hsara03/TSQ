@@ -1,19 +1,22 @@
 package com.github.tqs;
 
 import com.github.tqs.exceptions.InvalidWordException;
-import com.github.tqs.exceptions.NoWordsException;
 import com.github.tqs.exceptions.NotEnoughWordsException;
 import com.github.tqs.exceptions.UnableToReadWordsException;
 
 import java.io.*;
+import java.util.Random;
 
 public class WordProvider {
 
+    private String fileName;
     private BufferedReader bufferedReader;
+    private int lineCount;
     private int minimumWords;
 
     public WordProvider(int minimumWords){
         this.minimumWords=minimumWords;
+        this.lineCount=0;
     }
 
     private void checkWord(String word) throws InvalidWordException{
@@ -23,9 +26,11 @@ public class WordProvider {
     }
 
     public void readWordFile(String filePath) throws UnableToReadWordsException, NotEnoughWordsException {
+        this.fileName=filePath;
         File file = new File(filePath);
         try {
             bufferedReader = new BufferedReader(new FileReader(file));
+            this.lineCount++;
             int validWords = 0;
             while(true){
                 String word = bufferedReader.readLine();
@@ -33,7 +38,6 @@ public class WordProvider {
                 try {
                     this.checkWord(word);
                     validWords++;
-                    if(validWords>=this.minimumWords) break;
                 } catch(InvalidWordException exception){
                     // ignore word, invalid
                 }
@@ -44,23 +48,29 @@ public class WordProvider {
         }
     }
 
-    public String getNextWord() throws IOException, NoWordsException {
+    public String getNextWord() throws IOException {
         String word=null;
         while(true){
-            word = bufferedReader.readLine();
-
-            if (word==null) {
-                throw new NoWordsException();
+            int offset = lineCount/3 * new Random().nextInt();
+            if(offset<1) offset=1;
+            for (int i = 0; i < offset; i++) {
+                word = bufferedReader.readLine();
             }
 
-            try{
+            if(word==null) {
+                this.bufferedReader.close();
+                this.bufferedReader = new BufferedReader(new FileReader(this.fileName));
+                continue;
+            }
+
+            try {
                 checkWord(word);
-                return word;
-            } catch (InvalidWordException e) {
-                throw new RuntimeException(e);
+                break;
+            } catch(InvalidWordException e){
+                // the word was invalid, skip and try another
             }
-
         }
+        return word;
     }
 
 

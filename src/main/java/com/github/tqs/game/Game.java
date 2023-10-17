@@ -36,7 +36,7 @@ public class Game {
 
     private void updateWords(){
         for (Word word: words) {
-            word.move();
+            // word.move();
         }
     }
 
@@ -45,10 +45,11 @@ public class Game {
         while(iterator.hasNext()) {
             Word word = iterator.next();
 
+            /*
             if (word.hasCollidedWithBase(BASE_Y)){
                 player.decreaseLife();
                 iterator.remove(); //eliminar la paraula que ha colisionat
-            }
+            }*/
         }
     }
 }
