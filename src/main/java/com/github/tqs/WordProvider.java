@@ -29,6 +29,7 @@ public class WordProvider {
             int validWords = 0;
             while(true){
                 String word = bufferedReader.readLine();
+                if(word==null) break;
                 try {
                     this.checkWord(word);
                     validWords++;
