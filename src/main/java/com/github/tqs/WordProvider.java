@@ -3,11 +3,15 @@ package com.github.tqs;
 import com.github.tqs.exceptions.InvalidWordException;
 import com.github.tqs.exceptions.NotEnoughWordsException;
 import com.github.tqs.exceptions.UnableToReadWordsException;
+import com.github.tqs.game.Word;
 
 import java.io.*;
 import java.util.Random;
+import java.util.TimerTask;
 
 public class WordProvider {
+
+    private static Random random = new Random();
 
     private String fileName;
     private BufferedReader bufferedReader;
@@ -30,9 +34,9 @@ public class WordProvider {
         File file = new File(filePath);
         try {
             bufferedReader = new BufferedReader(new FileReader(file));
-            this.lineCount++;
             int validWords = 0;
             while(true){
+                this.lineCount++;
                 String word = bufferedReader.readLine();
                 if(word==null) break;
                 try {
@@ -48,10 +52,14 @@ public class WordProvider {
         }
     }
 
-    public String getNextWord() throws IOException {
+    public Word getNextWord() throws IOException{
+        return this.getNextWord(-1, null);
+    }
+
+    public Word getNextWord(int headroom, TimerTask task) throws IOException {
         String word=null;
         while(true){
-            int offset = lineCount/3 * new Random().nextInt();
+            int offset = (int) (lineCount * WordProvider.random.nextFloat());
             if(offset<1) offset=1;
             for (int i = 0; i < offset; i++) {
                 word = bufferedReader.readLine();
@@ -70,7 +78,8 @@ public class WordProvider {
                 // the word was invalid, skip and try another
             }
         }
-        return word;
+        System.out.println("provided word");
+        return new Word(word, WordProvider.random.nextFloat(), headroom, task);
     }
 
 

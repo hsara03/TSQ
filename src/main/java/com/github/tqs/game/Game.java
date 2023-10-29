@@ -4,52 +4,67 @@ import com.github.tqs.WordProvider;
 import com.github.tqs.exceptions.NotEnoughWordsException;
 import com.github.tqs.exceptions.UnableToReadWordsException;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Iterator;
+import java.util.Scanner;
+
 public class Game {
 
-    private List<Word> words;
-    private Player player;
-    private WordProvider wordProvider;
+    private WordProvider provider;
+    private final List<Word> targetWords;
+    private Word word;
+    private int difficulty;
+    private int highscore;
+    private boolean playing;
+    private File highscoreFile;
 
-    private final int BASE_Y =600; //IDK how it works size
-
-    public Game() {
-        player = new Player();
-        words = new ArrayList<>();
-        wordProvider= new WordProvider(100);
-
-        try{
-            wordProvider.readWordFile("src/main/resources/words.txt");
-        } catch (NotEnoughWordsException | UnableToReadWordsException e) {
-            throw new RuntimeException(e);
-        }
+    private int getHeadroom(){
+        float minHeadroom = 5;
+        float headroom = 30 - difficulty;
+        if(headroom<minHeadroom) headroom=minHeadroom;
+        return (int) headroom*1000;
     }
 
-    public void loopPrincipal() {
-        while(player.haslifes()){
-            updateWords();
-            checkCollisions();
-        }
+    public Game() throws NotEnoughWordsException, UnableToReadWordsException, IOException {
+        this.word = null;
+        this.difficulty = 0;
+        this.targetWords= new ArrayList<>();
+        this.highscore = 0;
+        this.playing = false;
+        this.provider=new WordProvider(50);
+        this.provider.readWordFile("src/main/resources/words.txt");
+        this.readHighscore();
     }
 
-    private void updateWords(){
-        for (Word word: words) {
-            // word.move();
-        }
+    public void setHighscore(int highscore) throws IOException {
+        this.readHighscore();
+        this.highscore=highscore;
+        BufferedWriter writer = new BufferedWriter(new FileWriter(this.highscoreFile));
+        writer.write(String.valueOf(highscore));
+        writer.close();
     }
 
-    private void checkCollisions() {
-        Iterator<Word> iterator= words.iterator();
-        while(iterator.hasNext()) {
-            Word word = iterator.next();
-
-            /*
-            if (word.hasCollidedWithBase(BASE_Y)){
-                player.decreaseLife();
-                iterator.remove(); //eliminar la paraula que ha colisionat
-            }*/
+    public void readHighscore() throws IOException {
+        this.highscore=-1;
+        if(this.highscoreFile==null){
+            this.highscoreFile=new File("highscore.txt");
         }
+        if(!Files.isRegularFile(this.highscoreFile.toPath())){
+            Files.createFile(this.highscoreFile.toPath());
+        }
+        this.highscoreFile.setWritable(true);
+        this.highscoreFile.setReadable(true);
+        Scanner myReader = new Scanner(this.highscoreFile);
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            this.highscore=Integer.parseInt(data);
+        }
+        myReader.close();
+        if(this.highscore<0) this.highscore=0;
     }
 }

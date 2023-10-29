@@ -23,7 +23,7 @@ public class WordProviderTest {
 
     @Test
     public void testNextWords() throws UnableToReadWordsException, NotEnoughWordsException, java.io.IOException, com.github.tqs.exceptions.NoWordsException {
-        this.provider.readWordFile("src/main/resources/words.mini.txt");
+        this.provider.readWordFile("src/main/resources/words.txt");
         for (int i = 0; i < 10; i++) {
             System.out.println(this.provider.getNextWord());
         }
