@@ -47,8 +47,8 @@ public class Word {
         if(this.ranOutOfTime()) throw new RanOutOfTimeException();
         this.typed+=nextChar;
         if(isCompleted()){
-            this.task.cancel();
-            if(this.task==null){
+            if(this.task!=null){
+                this.task.cancel();
                 this.timer.cancel();;
             }
         }

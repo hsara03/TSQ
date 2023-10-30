@@ -5,27 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/GraphicsWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Changa-SemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/WordProvider.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/game/Game.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/game/Player.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/game/Word.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/invalid/empty_word_list.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/WordProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/WordProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/game/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/game/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/game/Word.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordProviderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordProviderTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest.class" afterDir="false" />
     </list>
     <list id="f9e9d20d-300f-4c91-a886-f79d545802af" name="Changes by h_sar" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,9 +18,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2XRo4rl0BOyW6l1GLIFukpQ3neo" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -51,7 +33,7 @@
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/quique/Downloads/TSQ",
+    "last_opened_file_path": "/Users/quiquelhappy/Downloads/TSQ",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -82,6 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698601067641</updated>
       <workItem from="1698601068828" duration="4135000" />
+      <workItem from="1698663566542" duration="219000" />
     </task>
     <servers />
   </component>

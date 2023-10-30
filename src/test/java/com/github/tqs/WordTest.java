@@ -59,9 +59,7 @@ public class WordTest {
     public void spellCompletely() throws IOException, AlreadySpelledException, InvalidNextCharException, RanOutOfTimeException {
         Word word = provider.getNextWord();
         String content = word.getContent();
-        System.out.println(content);
         for (int i = 0; i < content.length(); i++) {
-            System.out.println(content.charAt(i));
             word.type(content.charAt(i));
         }
     }
@@ -70,9 +68,7 @@ public class WordTest {
     public void overspell() throws IOException, InvalidNextCharException, RanOutOfTimeException, AlreadySpelledException {
         Word word = provider.getNextWord();
         String content = word.getContent();
-        System.out.println(content);
         for (int i = 0; i < content.length(); i++) {
-            System.out.println(content.charAt(i));
             word.type(content.charAt(i));
         }
         try {
