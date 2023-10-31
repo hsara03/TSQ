@@ -1,4 +1,4 @@
-package com.github.tqs.exceptions;
+package com.github.tqs.exceptions.provider;
 
 /**
  * WordProvider.readWordFile(file)

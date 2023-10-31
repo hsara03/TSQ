@@ -1,7 +1,8 @@
 package com.github.tqs;
 
-import com.github.tqs.exceptions.NotEnoughWordsException;
-import com.github.tqs.exceptions.UnableToReadWordsException;
+import com.github.tqs.exceptions.provider.NoWordsException;
+import com.github.tqs.exceptions.provider.NotEnoughWordsException;
+import com.github.tqs.exceptions.provider.UnableToReadWordsException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,7 +23,7 @@ public class WordProviderTest {
     }
 
     @Test
-    public void testNextWords() throws UnableToReadWordsException, NotEnoughWordsException, java.io.IOException, com.github.tqs.exceptions.NoWordsException {
+    public void testNextWords() throws UnableToReadWordsException, NotEnoughWordsException, java.io.IOException, NoWordsException {
         this.provider.readWordFile("src/main/resources/words.mini.txt");
         for (int i = 0; i < 10; i++) {
             System.out.println(this.provider.getNextWord());
@@ -35,8 +36,6 @@ public class WordProviderTest {
             this.invalidProvider.readWordFile("this file doesnt exist");
         } catch(UnableToReadWordsException exception) {
             // thrown, test passed
-        } catch(NotEnoughWordsException exception){
-            throw exception;
         }
     }
 

@@ -1,9 +1,10 @@
 package com.github.tqs;
 
-import com.github.tqs.exceptions.NotEnoughWordsException;
-import com.github.tqs.exceptions.UnableToReadWordsException;
+import com.github.tqs.exceptions.provider.NotEnoughWordsException;
+import com.github.tqs.exceptions.provider.UnableToReadWordsException;
 import com.github.tqs.exceptions.word.InvalidNextCharException;
 import com.github.tqs.exceptions.word.RanOutOfTimeException;
+import com.github.tqs.game.Game;
 import com.github.tqs.game.Word;
 
 import javax.swing.*;
@@ -19,40 +20,16 @@ import java.util.TimerTask;
 
 public class GraphicsWindow {
 
-    private static WordProvider provider;
-    private static List<Word> targetWords = new ArrayList<>();
-    private static Word word;
-    private static int difficulty = 0;
+    private Game game;
     private final static int height = 600;
     private final static int width = 900;
     private final static int xPadding = 120;
     private final static int yBottomPadding = 50;
 
-    public static int getHeadroom(){
-        float minHeadroom = 5;
-        float headroom = 30 - difficulty;
-        if(headroom<minHeadroom){
-            headroom=minHeadroom;
-        }
-        return (int) headroom*1000;
-    }
-
     public static void main() throws NotEnoughWordsException, UnableToReadWordsException, IOException, FontFormatException {
 
-        try {
-            provider = new WordProvider(30);
-            provider.readWordFile("src/main/resources/words.txt");
-            for (int i = 0; i < 2; i++) {
-                targetWords.add(provider.getNextWord(getHeadroom(), new TimerTask() {
-                    @Override
-                    public void run() {
-                        System.out.println("ran out of time");
-                    }
-                }));
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        Game game = new Game("src/main/resources/words.txt", 50);
+        game.startGame();
 
         JFrame frame = new JFrame("Words");
         frame.setSize(width, height);
@@ -66,24 +43,32 @@ public class GraphicsWindow {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
 
-                g.setFont(customFontBold);
+                if(game.isPlaying()){
+                    g.setFont(customFontBold);
 
-                for (Word word : targetWords) {
-                    String targetContent = word.getContent();
-                    String typedContent = word.getTyped();
-                    FontMetrics fm=g.getFontMetrics();
-                    int startX = xPadding +(int) ((width- xPadding *2) * word.getX());
-                    int startY = (int) (word.timePercent() * (height-yBottomPadding));
+                    for (Word word : game.getTargetWords()) {
+                        String targetContent = word.getContent();
+                        String typedContent = word.getTyped();
+                        FontMetrics fm=g.getFontMetrics();
+                        int startX = xPadding +(int) ((width- xPadding *2) * word.getX());
+                        int startY = (int) (word.timePercent() * (height-yBottomPadding));
 
-                    for (int i = 0; i < targetContent.length(); i++) {
-                        if (i < typedContent.length()) {
-                            g.setColor(Color.GREEN);  // The character matches and is typed correctly
-                        } else {
-                            g.setColor(Color.RED);    // The character is yet to be typed or is typed wrongly
+                        for (int i = 0; i < targetContent.length(); i++) {
+                            if (i < typedContent.length()) {
+                                g.setColor(Color.GREEN);  // The character matches and is typed correctly
+                            } else {
+                                g.setColor(Color.RED);    // The character is yet to be typed or is typed wrongly
+                            }
+                            String charAsString = Character.toString(targetContent.charAt(i));
+                            g.drawString(charAsString, startX, startY);
+                            startX += fm.stringWidth(charAsString); // Increment by the width of the character we just drew
                         }
-                        String charAsString = Character.toString(targetContent.charAt(i));
-                        g.drawString(charAsString, startX, startY);
-                        startX += fm.stringWidth(charAsString); // Increment by the width of the character we just drew
+                    }
+                } else {
+                    try {
+                        g.drawString("score: "+ String.valueOf(game.readHighscore()), xPadding, 50);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
                     }
                 }
             }
@@ -93,38 +78,12 @@ public class GraphicsWindow {
         panel.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                if(word==null){
-                    for (Word typedWord:targetWords) {
-                        if(typedWord.getContent().charAt(0)==e.getKeyChar()) {
-                            word=typedWord;
-                            break;
-                        }
-                    }
-                }
-                if(word==null) return;
                 try {
-                    word.type(e.getKeyChar());
-                    if (word.isCompleted()) {
-                        difficulty++;
-                        targetWords.remove(word);
-                        targetWords.add(provider.getNextWord(getHeadroom(), new TimerTask() {
-                            @Override
-                            public void run() {
-                                System.out.println("ran out of time");
-                            }
-                        }));
-                        word=null;
-                    }
-                } catch (InvalidNextCharException exception) {
-                    // the typed char does not equal to the beginning on this word
-                } catch(RanOutOfTimeException exception){
-                    // unexpected exception
-                    throw new RuntimeException(exception);
-                } catch(Exception exception){
-                    throw new RuntimeException(exception);
+                    game.handleType(e.getKeyChar());
+                    panel.repaint();
+                } catch (Exception exception){
+                    // XD
                 }
-
-                panel.repaint();
             }
         });
 

@@ -1,7 +1,7 @@
 package com.github.tqs;
 
-import com.github.tqs.exceptions.NotEnoughWordsException;
-import com.github.tqs.exceptions.UnableToReadWordsException;
+import com.github.tqs.exceptions.provider.NotEnoughWordsException;
+import com.github.tqs.exceptions.provider.UnableToReadWordsException;
 import com.github.tqs.exceptions.word.AlreadySpelledException;
 import com.github.tqs.exceptions.word.InvalidNextCharException;
 import com.github.tqs.exceptions.word.RanOutOfTimeException;

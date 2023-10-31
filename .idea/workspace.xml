@@ -4,8 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="fix word test">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/game/NoTargetWordException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/GraphicsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/GraphicsWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/WordProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/WordProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/InvalidWordException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/word/InvalidWordException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/NoWordsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/provider/NoWordsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/NotEnoughWordsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/provider/NotEnoughWordsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/UnableToReadWordsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/provider/UnableToReadWordsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow$3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/WordProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/WordProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/exceptions/InvalidWordException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/exceptions/NoWordsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/exceptions/NotEnoughWordsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/exceptions/UnableToReadWordsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/game/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordProviderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordProviderTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest.class" afterDir="false" />
     </list>
@@ -14,6 +41,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,6 +64,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
@@ -54,6 +89,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GameTest.testInvalidTarget" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AstroType" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.tqs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.tqs" />
+      <option name="MAIN_CLASS_NAME" value="com.github.tqs.GameTest" />
+      <option name="METHOD_NAME" value="testInvalidTarget" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest.testInvalidType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AstroType" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.tqs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.tqs" />
+      <option name="MAIN_CLASS_NAME" value="com.github.tqs.GameTest" />
+      <option name="METHOD_NAME" value="testInvalidType" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.GameTest.testInvalidTarget" />
+        <item itemvalue="JUnit.GameTest.testInvalidType" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -65,10 +138,25 @@
       <updated>1698601067641</updated>
       <workItem from="1698601068828" duration="4135000" />
       <workItem from="1698663566542" duration="219000" />
+      <workItem from="1698663810894" duration="277000" />
+      <workItem from="1698738052043" duration="2905000" />
     </task>
+    <task id="LOCAL-00001" summary="fix word test">
+      <option name="closed" value="true" />
+      <created>1698664092258</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698664092258</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix word test" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix word test" />
   </component>
 </project>
