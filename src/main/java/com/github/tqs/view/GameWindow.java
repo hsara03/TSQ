@@ -1,22 +1,25 @@
 package com.github.tqs.view;
 
+import com.github.tqs.exceptions.game.NoTargetWordException;
 import com.github.tqs.exceptions.provider.NotEnoughWordsException;
 import com.github.tqs.exceptions.provider.UnableToReadWordsException;
-import com.github.tqs.model.Difficulty;
-import com.github.tqs.model.Game;
-import com.github.tqs.model.Word;
+import com.github.tqs.exceptions.word.InvalidNextCharException;
+import com.github.tqs.model.*;
 
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
-import java.util.Observable;
+import java.util.*;
 import java.util.Timer;
-import java.util.TimerTask;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
-public class GameWindow extends Observable {
+public class GameWindow extends Observable implements GameListener {
 
     private Game game;
     private final int height = 600;
@@ -26,26 +29,26 @@ public class GameWindow extends Observable {
     private final JFrame frame;
     private final Font customFont;
     private final Font customFontBold;
+    private final File ding = new File("src/main/resources/sounds/ding.wav");
+    private final File negative = new File("src/main/resources/sounds/negative.wav");
+    private final File wrong = new File("src/main/resources/sounds/wrong.wav");
+    private final File type = new File("src/main/resources/sounds/type.wav");
+    private final Runnable endMethod;
 
     public Game getGame() {
         return game;
     }
 
-    public GameWindow(Difficulty difficulty) throws IOException, NotEnoughWordsException, UnableToReadWordsException, FontFormatException {
-        this.game=new Game("src/main/resources/words.txt", 10, difficulty, new Runnable() {
-            @Override
-            public void run() {
-                setChanged();
-                notifyAll();
-            }
-        });
+    public GameWindow(Difficulty difficulty, Runnable endMethod) throws IOException, NotEnoughWordsException, UnableToReadWordsException, FontFormatException {
+        this.endMethod=endMethod;
+        this.game=new Game("src/main/resources/words.txt", 10, difficulty);
+        this.game.addListener(this);
         this.frame = new JFrame("Words");
         this.frame.setSize(width, height);
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.setResizable(false);
         this.customFont = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/Changa-SemiBold.ttf"));
         this.customFontBold = customFont.deriveFont(Font.BOLD, 16);
-
     }
 
     public void startPlaying() throws IOException, FontFormatException {
@@ -95,8 +98,10 @@ public class GameWindow extends Observable {
                 try {
                     game.handleType(e.getKeyChar());
                     panel.repaint();
-                } catch (Exception exception) {
-
+                } catch (InvalidNextCharException | NoTargetWordException exception) {
+                    invalidChar();
+                } catch (Exception exception){
+                    // ignore
                 }
             }
         });
@@ -113,5 +118,56 @@ public class GameWindow extends Observable {
 
         frame.add(panel);
         frame.setVisible(true);
+    }
+
+    @Override
+    public void gameEnded() {
+        try{
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(negative));
+            clip.start();
+            this.frame.dispose();
+            this.endMethod.run();
+        } catch (Exception e){
+            System.out.println("this system doesn't support audio output");
+        }
+    }
+
+    @Override
+    public void gameStarted() {
+
+    }
+
+    @Override
+    public void wordTyped() {
+        try{
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(ding));
+            clip.start();
+        } catch (Exception e){
+            System.out.println("this system doesn't support audio output");
+        }
+    }
+
+    @Override
+    public void invalidChar() {
+        try{
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(wrong));
+            clip.start();
+        } catch (Exception e){
+            System.out.println("this system doesn't support audio output");
+        }
+    }
+
+    @Override
+    public void charTyped() {
+        try{
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(type));
+            clip.start();
+        } catch (Exception e){
+            System.out.println("this system doesn't support audio output");
+        }
     }
 }

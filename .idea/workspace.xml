@@ -4,28 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="fixed tests, moved to use mvc">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/SetupWindow.java" afterDir="false" />
+    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="score shown">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/GameListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/WindowListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/ding.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/negative.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/type.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/highscore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscore.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/HighScoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/HighScoreManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GraphicsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/GameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/GameTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordProviderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordProviderTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/SetupWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/SetupWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game.class" afterDir="false" />
     </list>
     <list id="f9e9d20d-300f-4c91-a886-f79d545802af" name="Changes by h_sar" comment="Changes by h_sar">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GraphicsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Word.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +36,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -44,57 +45,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java">
-      <ranges>
-        <range start1="9" end1="9" start2="9" end2="10" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="10" end1="11" start2="11" end2="11" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="12" end1="12" start2="12" end2="18" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="19" end1="20" start2="25" end2="26" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="22" end1="23" start2="28" end2="29" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="26" end1="28" start2="32" end2="34" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="39" end1="40" start2="45" end2="46" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="49" end1="51" start2="55" end2="57" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="61" end1="62" start2="67" end2="68" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="66" end1="68" start2="72" end2="74" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-      </ranges>
-    </file>
     <file path="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java">
       <ranges>
-        <range start1="14" end1="16" start2="14" end2="15" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="19" end1="20" start2="18" end2="19" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="21" end1="26" start2="20" end2="28" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="27" end1="27" start2="29" end2="32" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="28" end1="28" start2="33" end2="47" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="29" end1="42" start2="48" end2="49" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="43" end1="44" start2="50" end2="51" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="46" end1="53" start2="53" end2="53" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="58" end1="60" start2="58" end2="59" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="61" end1="67" start2="60" end2="66" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="68" end1="84" start2="67" end2="76" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="86" end1="86" start2="78" end2="79" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="87" end1="87" start2="80" end2="87" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="88" end1="88" start2="88" end2="90" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java">
-      <ranges>
-        <range start1="18" end1="18" start2="18" end2="19" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="25" end1="26" start2="26" end2="27" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="27" end1="29" start2="28" end2="28" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="30" end1="30" start2="29" end2="30" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="31" end1="32" start2="31" end2="32" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="45" end1="46" start2="45" end2="45" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="49" end1="50" start2="48" end2="49" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="61" end1="61" start2="60" end2="63" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="63" end1="65" start2="65" end2="78" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="67" end1="71" start2="80" end2="80" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="74" end1="85" start2="83" end2="84" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="99" end1="100" start2="98" end2="99" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="113" end1="114" start2="112" end2="113" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="116" end1="123" start2="115" end2="115" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="124" end1="124" start2="116" end2="123" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="127" end1="127" start2="126" end2="129" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="130" end1="158" start2="132" end2="132" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="2" end1="2" start2="2" end2="3" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="4" end1="7" start2="5" end2="7" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="8" end1="8" start2="8" end2="10" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="14" end1="15" start2="16" end2="17" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="16" end1="17" start2="18" end2="20" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="18" end1="19" start2="21" end2="22" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="28" end1="28" start2="31" end2="36" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="33" end1="41" start2="41" end2="45" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="47" end1="48" start2="51" end2="51" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="82" end1="83" start2="85" end2="86" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
+        <range start1="97" end1="99" start2="100" end2="104" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="116" end1="116" start2="121" end2="172" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
       </ranges>
     </file>
   </component>
@@ -107,47 +71,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/quiquelhappy/Downloads/TSQ&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/quique/Downloads/TSQ/src/main/resources/sounds",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\quique\Downloads\TSQ\src\main\resources\sounds" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\quique\Downloads\TSQ\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.github.tqs.Main" />
       <module name="AstroType" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameTest.testInvalidTarget" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AstroType" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.tqs.view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.github.tqs" />
-      <option name="MAIN_CLASS_NAME" value="com.github.tqs.GameTest" />
-      <option name="METHOD_NAME" value="testInvalidTarget" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -168,6 +119,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WordProviderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AstroType" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.tqs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.tqs" />
+      <option name="MAIN_CLASS_NAME" value="com.github.tqs.WordProviderTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WordProviderTest.testMockNextWord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AstroType" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.tqs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.tqs" />
+      <option name="MAIN_CLASS_NAME" value="com.github.tqs.WordProviderTest" />
+      <option name="METHOD_NAME" value="testMockNextWord" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WordTest.overspell" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AstroType" />
       <extension name="coverage">
@@ -179,22 +161,6 @@
       <option name="PACKAGE_NAME" value="com.github.tqs" />
       <option name="MAIN_CLASS_NAME" value="com.github.tqs.WordTest" />
       <option name="METHOD_NAME" value="overspell" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WordTest.spellCompletely" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AstroType" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.tqs.view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.github.tqs" />
-      <option name="MAIN_CLASS_NAME" value="com.github.tqs.WordTest" />
-      <option name="METHOD_NAME" value="spellCompletely" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -218,11 +184,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WordProviderTest.testMockNextWord" />
+        <item itemvalue="JUnit.WordProviderTest" />
         <item itemvalue="JUnit.GameTest.testInvalidType" />
         <item itemvalue="JUnit.WordTest.typeJustBeforeExpire" />
         <item itemvalue="JUnit.WordTest.overspell" />
-        <item itemvalue="JUnit.WordTest.spellCompletely" />
-        <item itemvalue="JUnit.GameTest.testInvalidTarget" />
       </list>
     </recent_temporary>
   </component>
@@ -244,6 +210,7 @@
       <workItem from="1699917396921" duration="10000" />
       <workItem from="1700005353649" duration="25000" />
       <workItem from="1700911847276" duration="1002000" />
+      <workItem from="1701026717779" duration="4417000" />
     </task>
     <task id="LOCAL-00001" summary="fix word test">
       <option name="closed" value="true" />
@@ -269,7 +236,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701019603524</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="score shown">
+      <option name="closed" value="true" />
+      <created>1701024686925</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701024686925</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Changes by h_sar">
+      <option name="closed" value="true" />
+      <created>1701024696638</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701024696638</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,6 +261,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix word test" />
     <MESSAGE value="fixed tests, moved to use mvc" />
+    <MESSAGE value="score shown" />
     <MESSAGE value="Changes by h_sar" />
     <option name="LAST_COMMIT_MESSAGE" value="Changes by h_sar" />
   </component>

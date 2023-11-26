@@ -1,9 +1,6 @@
 package com.github.tqs.model;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.util.Scanner;
 
@@ -53,8 +50,9 @@ public class HighScoreManager {
     public void setHighscore(int score) throws IOException {
         this.readHighscore();
         if(this.highscore<score) this.highscore=score;
-        BufferedWriter writer = new BufferedWriter(new FileWriter(this.highscoreFile));
-        writer.write(String.valueOf(score));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(this.highscoreFile, true));
+        PrintWriter out = new PrintWriter(writer);
+        out.println(score);
         writer.close();
     }
 
@@ -65,6 +63,7 @@ public class HighScoreManager {
             String data = myReader.nextLine();
             int score =Integer.parseInt(data);
             if(score>this.highscore) this.highscore=score;
+            this.lastScore = score;
         }
         myReader.close();
         if(this.highscore<0) this.highscore=0;

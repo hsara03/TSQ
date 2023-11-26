@@ -12,14 +12,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.TimerTask;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
 public class Game {
 
+    private final Set<GameListener> listeners;
     private WordProvider provider;
     private final List<Word> targetWords;
     private Word word;
@@ -27,9 +25,8 @@ public class Game {
     private HighScoreManager highscore;
     private boolean playing;
     private int scoreMultiplier;
-    private final Runnable finishTask;
 
-    public Game(String path, int minimumWords, Difficulty difficulty, Runnable finishTask) throws NotEnoughWordsException, UnableToReadWordsException, IOException {
+    public Game(String path, int minimumWords, Difficulty difficulty) throws NotEnoughWordsException, UnableToReadWordsException, IOException {
         switch (difficulty) {
             case NORMAL:
                 this.difficulty = 10;
@@ -41,12 +38,12 @@ public class Game {
                 this.difficulty = 0;
                 break;
         }
+        this.listeners=new HashSet<>();
         this.word = null;
         this.targetWords= new ArrayList<>();
         this.playing = false;
         this.provider=new WordProvider(minimumWords);
         this.provider.readWordFile(path);
-        this.finishTask=finishTask;
         switch (difficulty) {
             case NORMAL:
                 this.scoreMultiplier = 2;
@@ -63,17 +60,24 @@ public class Game {
         this.highscore.resetCurrentScore();
     }
 
+    public void addListener(GameListener listener){
+        this.listeners.add(listener);
+    }
+
     private TimerTask getEndOfTimeTask() {
         return new TimerTask() {
             @Override
             public void run() {
+                if(!playing) return;
                 playing=false;
                 try {
                     highscore.setHighscore(highscore.getLastScore());
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                finishTask.run();
+                for (GameListener listener: listeners){
+                    listener.gameEnded();
+                }
             }
         };
     }
@@ -114,6 +118,9 @@ public class Game {
             difficulty++;
             targetWords.remove(word);
             word=null;
+            for (GameListener listener: listeners) {
+                listener.wordTyped();
+            }
             CompletableFuture.runAsync(() -> {
                 try {
                     targetWords.add(provider.getNextWord(getHeadroom(), getEndOfTimeTask()));
@@ -121,6 +128,10 @@ public class Game {
                     throw new RuntimeException(e);
                 }
             });
+        } else {
+            for (GameListener listener: listeners) {
+                listener.charTyped();
+            }
         }
     }
 

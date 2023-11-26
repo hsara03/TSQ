@@ -5,7 +5,9 @@ import com.github.tqs.model.HighScoreManager;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SetupWindow {
@@ -20,13 +22,17 @@ public class SetupWindow {
 
     public Difficulty pickDifficulty() throws IOException{
         int highScore= highScoreManager.readHighscore(); // leer puntuacion maxima
-        String message = "La puntuación más alta es " + highScore + "\nSelecciona la dificultad del juego:";
+        int score = highScoreManager.getLastScore();
+        List<String> messages = new ArrayList<>();
+        if(highScore>0) messages.add("La puntuación más alta es " + highScore);
+        if(score>=0) messages.add("La puntuación de la última partida fue " + score);
+        messages.add("Selecciona la dificultad del juego:");
         Map<String, Difficulty> options = new HashMap<>();
         options.put("Fácil", Difficulty.EASY);
         options.put("Mediano", Difficulty.NORMAL);
         options.put("Difícil", Difficulty.HARD);
         String difficulty = (String) JOptionPane.showInputDialog(null,
-                message,
+                String.join("\n", messages),
                 "Dificultad",
                 JOptionPane.PLAIN_MESSAGE,
                 null,
