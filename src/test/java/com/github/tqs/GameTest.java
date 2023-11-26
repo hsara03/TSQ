@@ -3,51 +3,69 @@ package com.github.tqs;
 import com.github.tqs.exceptions.game.NoTargetWordException;
 import com.github.tqs.exceptions.provider.NotEnoughWordsException;
 import com.github.tqs.exceptions.provider.UnableToReadWordsException;
-import com.github.tqs.exceptions.word.AlreadySpelledException;
 import com.github.tqs.exceptions.word.InvalidNextCharException;
-import com.github.tqs.exceptions.word.RanOutOfTimeException;
-import com.github.tqs.game.Game;
-import com.github.tqs.game.Word;
+import com.github.tqs.model.Difficulty;
+import com.github.tqs.model.Game;
+import com.github.tqs.model.Word;
 import org.junit.Test;
 
 import java.io.IOException;
 
 public class GameTest {
 
-    private Game game;
-
+    /**
+     * tries to initialize a word with an invalid word list file
+     */
     @Test()
     public void testInvalidFile() throws IOException, NotEnoughWordsException {
+        Exception result = null;
         try {
-            Game game = new Game("invalid file", 10);
-        } catch (UnableToReadWordsException exception){
-            // expected
+            new Game("invalid file", 10, Difficulty.NORMAL);
+        } catch (Exception exception){
+            result=exception;
         }
+        assert result != null;
+        assert result instanceof UnableToReadWordsException;
     }
 
+    /**
+     * tries to spell out a word with an invalid character; first, selects a word from the generated
+     * word list, then, after selecting a word (trying to spell its first character), inputs an invalid
+     * character
+     */
     @Test()
-    public void testInvalidType() throws IOException, NotEnoughWordsException, NoTargetWordException, AlreadySpelledException, RanOutOfTimeException, UnableToReadWordsException {
+    public void testInvalidType() {
+        Exception result = null;
         try {
-            Game game = new Game("src/main/resources/words.mini.txt", 10);
+            Game game = new Game("src/main/resources/words.mini.txt", 10, Difficulty.NORMAL);
             game.startGame();
             for (Word word:game.getTargetWords()) {
                 game.handleType(word.getContent().charAt(0));
                 break;
             }
             game.handleType(' '); // invalid char
-        } catch (InvalidNextCharException exception){
-            // expected
+        } catch (Exception exception){
+            result=exception;
         }
+        assert result != null;
+        assert result instanceof InvalidNextCharException;
     }
 
+    /**
+     * tries to spell out starting with an invalid character, when no word has been picked
+     * as a target yet, so, no valid targets will resolve for the first character being typed
+     */
     @Test()
-    public void testInvalidTarget() throws IOException, NotEnoughWordsException, AlreadySpelledException, RanOutOfTimeException, UnableToReadWordsException, InvalidNextCharException {
+    public void testInvalidTarget() {
+        Exception result = null;
         try {
-            Game game = new Game("src/main/resources/words.mini.txt", 10);
+            Game game = new Game("src/main/resources/words.mini.txt", 10, Difficulty.NORMAL);
             game.handleType(' '); // no targets will be available
-        } catch (NoTargetWordException exception){
-            // expected
+        } catch (Exception exception){
+            result=exception;
         }
+        assert result != null;
+        assert result instanceof NoTargetWordException;
     }
 
 

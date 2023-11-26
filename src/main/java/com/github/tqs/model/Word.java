@@ -1,4 +1,4 @@
-package com.github.tqs.game;
+package com.github.tqs.model;
 
 import com.github.tqs.exceptions.word.AlreadySpelledException;
 import com.github.tqs.exceptions.word.InvalidNextCharException;
@@ -28,6 +28,10 @@ public class Word {
         if(time>0){
             this.timer.schedule(this.task, time);
         }
+    }
+
+    public long getStart(){
+        return this.start;
     }
 
     public boolean ranOutOfTime() {

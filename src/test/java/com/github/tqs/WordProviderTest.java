@@ -1,8 +1,8 @@
 package com.github.tqs;
 
-import com.github.tqs.exceptions.provider.NoWordsException;
 import com.github.tqs.exceptions.provider.NotEnoughWordsException;
 import com.github.tqs.exceptions.provider.UnableToReadWordsException;
+import com.github.tqs.model.WordProvider;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,59 +17,98 @@ public class WordProviderTest {
         provider = new WordProvider(5);
     }
 
+    /**
+     * tries to initialize with a valid word list file
+     */
     @Test
-    public void testValidFile() throws UnableToReadWordsException, NotEnoughWordsException {
-        this.provider.readWordFile("src/main/resources/words.mini.txt");
-    }
-
-    @Test
-    public void testNextWords() throws UnableToReadWordsException, NotEnoughWordsException, java.io.IOException, NoWordsException {
-        this.provider.readWordFile("src/main/resources/words.mini.txt");
-        for (int i = 0; i < 10; i++) {
-            System.out.println(this.provider.getNextWord());
+    public void testValidFile() {
+        Exception result = null;
+        try {
+            this.provider.readWordFile("src/main/resources/words.mini.txt");
+        } catch (Exception exception){
+            // unexpected
+            result=exception;
         }
+        assert result==null;
     }
 
     @Test
-    public void testInvalidFile() throws NotEnoughWordsException {
+    public void testNextWords() {
+        Exception result = null;
+        try {
+            this.provider.readWordFile("src/main/resources/words.mini.txt");
+            for (int i = 0; i < 10; i++) {
+                assert this.provider.getNextWord() != null;
+            }
+        } catch (Exception exception){
+            // unexpected
+            result=exception;
+        }
+        assert result==null;
+    }
+
+    /**
+     * test invalid word list file
+     */
+    @Test
+    public void testInvalidFile() {
+        Exception result = null;
         try {
             this.invalidProvider.readWordFile("this file doesnt exist");
-        } catch(UnableToReadWordsException exception) {
+        } catch(Exception exception) {
             // thrown, test passed
+            result = exception;
         }
+        assert result != null;
+        assert result instanceof UnableToReadWordsException;
     }
 
+    /**
+     * tries to initialize with an empty word list
+     */
     @Test
-    public void testEmptyWords() throws UnableToReadWordsException, NotEnoughWordsException {
+    public void testEmptyWords() {
+        Exception result = null;
         try {
             this.invalidProvider.readWordFile("src/main/resources/invalid/empty_word_list.txt");
-        } catch(NotEnoughWordsException exception) {
+        } catch(Exception exception) {
             // thrown, test passed
-        } catch(UnableToReadWordsException exception){
-            throw exception;
+            result = exception;
         }
+        assert result != null;
+        assert result instanceof NotEnoughWordsException;
     }
 
+    /**
+     * tries to initialize with too few words
+     */
     @Test
-    public void testNotEnoughWords() throws UnableToReadWordsException, NotEnoughWordsException {
+    public void testNotEnoughWords() {
+        Exception result = null;
         try {
             this.invalidProvider.readWordFile("src/main/resources/invalid/not_enough_words.txt");
-        } catch(NotEnoughWordsException exception) {
+        } catch(Exception exception) {
+            result = exception;
             // thrown, test passed
-        } catch(UnableToReadWordsException exception){
-            throw exception;
         }
+        assert result != null;
+        assert result instanceof NotEnoughWordsException;
     }
 
+    /**
+     * tries to initialize with a good amount of words, but with not a minimum amount of valid words
+     */
     @Test
-    public void testNotEnoughValidWords() throws UnableToReadWordsException, NotEnoughWordsException {
+    public void testNotEnoughValidWords() {
+        Exception result = null;
         try {
             this.invalidProvider.readWordFile("src/main/resources/invalid/no_enough_valid_words.txt");
-        } catch(NotEnoughWordsException exception) {
+        } catch(Exception exception) {
+            result = exception;
             // thrown, test passed
-        } catch(UnableToReadWordsException exception){
-            throw exception;
         }
+        assert result != null;
+        assert result instanceof NotEnoughWordsException;
     }
 
 }

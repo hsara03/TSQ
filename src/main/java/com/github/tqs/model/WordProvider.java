@@ -1,9 +1,8 @@
-package com.github.tqs;
+package com.github.tqs.model;
 
 import com.github.tqs.exceptions.word.InvalidWordException;
 import com.github.tqs.exceptions.provider.NotEnoughWordsException;
 import com.github.tqs.exceptions.provider.UnableToReadWordsException;
-import com.github.tqs.game.Word;
 
 import java.io.*;
 import java.util.Random;
@@ -24,7 +23,7 @@ public class WordProvider {
     }
 
     private void checkWord(String word) throws InvalidWordException{
-        if(!word.matches("^[a-z]+$")){
+        if(!word.matches("^[a-z]{3,}+$")){
             throw new InvalidWordException();
         }
     }

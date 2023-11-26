@@ -1,4 +1,4 @@
-package com.github.tqs;
+package com.github.tqs.view;
 
 import com.github.tqs.exceptions.provider.NotEnoughWordsException;
 import com.github.tqs.exceptions.provider.UnableToReadWordsException;
@@ -13,22 +13,36 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class GraphicsWindow {
 
-    private Game game;
+    private static Game game;
     private final static int height = 600;
     private final static int width = 900;
     private final static int xPadding = 120;
     private final static int yBottomPadding = 50;
 
-    public static void main() throws NotEnoughWordsException, UnableToReadWordsException, IOException, FontFormatException {
 
-        Game game = new Game("src/main/resources/words.txt", 50);
+
+    public static void startGameWindow() throws NotEnoughWordsException, UnableToReadWordsException, IOException, FontFormatException {
+        Map<String, Difficulty> options = new HashMap<>();
+        options.put("Fácil", Difficulty.EASY);
+        options.put("Mediano", Difficulty.NORMAL);
+        options.put("Difícil", Difficulty.HARD);
+        String difficulty = (String) JOptionPane.showInputDialog(null,
+                "Selecciona la dificultad del juego:",
+                "Dificultad",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                options.keySet().toArray(),
+                "Mediano");
+        Difficulty pickedDifficulty = options.get(difficulty);
+
+        game = new Game("src/main/resources/words.txt", 10, pickedDifficulty);
         game.startGame();
 
         JFrame frame = new JFrame("Words");
@@ -43,36 +57,35 @@ public class GraphicsWindow {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
 
-                if(game.isPlaying()){
+                if (game.isPlaying()) {
                     g.setFont(customFontBold);
 
                     for (Word word : game.getTargetWords()) {
                         String targetContent = word.getContent();
                         String typedContent = word.getTyped();
-                        FontMetrics fm=g.getFontMetrics();
-                        int startX = xPadding +(int) ((width- xPadding *2) * word.getX());
-                        int startY = (int) (word.timePercent() * (height-yBottomPadding));
+                        FontMetrics fm = g.getFontMetrics();
+                        int startX = xPadding + (int) ((width - xPadding * 2) * word.getX());
+                        int startY = (int) (word.timePercent() * (height - yBottomPadding));
 
                         for (int i = 0; i < targetContent.length(); i++) {
                             if (i < typedContent.length()) {
-                                g.setColor(Color.GREEN);  // The character matches and is typed correctly
+                                g.setColor(Color.GREEN);
                             } else {
-                                g.setColor(Color.RED);    // The character is yet to be typed or is typed wrongly
+                                g.setColor(Color.RED);
                             }
                             String charAsString = Character.toString(targetContent.charAt(i));
                             g.drawString(charAsString, startX, startY);
-                            startX += fm.stringWidth(charAsString); // Increment by the width of the character we just drew
+                            startX += fm.stringWidth(charAsString);
                         }
                     }
                 } else {
                     try {
-                        g.drawString("score: "+ String.valueOf(game.readHighscore()), xPadding, 50);
+                        g.drawString("score: " + String.valueOf(game.readHighscore()), xPadding, 50);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
                 }
             }
-
         };
 
         panel.addKeyListener(new KeyAdapter() {
@@ -81,8 +94,8 @@ public class GraphicsWindow {
                 try {
                     game.handleType(e.getKeyChar());
                     panel.repaint();
-                } catch (Exception exception){
-                    // XD
+                } catch (Exception exception) {
+
                 }
             }
         });

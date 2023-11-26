@@ -1,6 +1,5 @@
-package com.github.tqs.game;
+package com.github.tqs.model;
 
-import com.github.tqs.WordProvider;
 import com.github.tqs.exceptions.game.NoTargetWordException;
 import com.github.tqs.exceptions.provider.NotEnoughWordsException;
 import com.github.tqs.exceptions.provider.UnableToReadWordsException;
@@ -27,21 +26,44 @@ public class Game {
     private int highscore;
     private boolean playing;
     private File highscoreFile;
+    private int score;
+    private int scoreMultiplier;
 
-    public Game(String path, int minimumWords) throws NotEnoughWordsException, UnableToReadWordsException, IOException {
+    public Game(String path, int minimumWords, Difficulty difficulty) throws NotEnoughWordsException, UnableToReadWordsException, IOException {
+        switch (difficulty) {
+            case NORMAL:
+                this.difficulty = 10;
+                break;
+            case HARD:
+                this.difficulty = 20;
+                break;
+            default:
+                this.difficulty = 0;
+                break;
+        }
         this.word = null;
-        this.difficulty = 0;
         this.targetWords= new ArrayList<>();
         this.highscore = 0;
         this.playing = false;
         this.provider=new WordProvider(minimumWords);
         this.provider.readWordFile(path);
         this.readHighscore();
+        switch (difficulty) {
+            case NORMAL:
+                this.scoreMultiplier = 2;
+                break;
+            case HARD:
+                this.scoreMultiplier = 3;
+                break;
+            default:
+                this.scoreMultiplier = 1;
+                break;
+        }
     }
 
     public void startGame() throws IOException {
         this.playing=true;
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < this.scoreMultiplier; i++) {
             targetWords.add(provider.getNextWord(getHeadroom(), new TimerTask() {
                 @Override
                 public void run() {
@@ -65,14 +87,6 @@ public class Game {
         float headroom = 30 - difficulty;
         if(headroom<minHeadroom) headroom=minHeadroom;
         return (int) headroom*1000;
-    }
-
-    public void setHighscore(int highscore) throws IOException {
-        this.readHighscore();
-        this.highscore=highscore;
-        BufferedWriter writer = new BufferedWriter(new FileWriter(this.highscoreFile));
-        writer.write(String.valueOf(highscore));
-        writer.close();
     }
 
     public void handleType(char typed) throws IOException, InvalidNextCharException, AlreadySpelledException, RanOutOfTimeException, NoTargetWordException {
@@ -103,6 +117,14 @@ public class Game {
 
     public boolean isPlaying() {
         return playing;
+    }
+
+    public void setHighscore(int highscore) throws IOException {
+        this.readHighscore();
+        this.highscore=highscore;
+        BufferedWriter writer = new BufferedWriter(new FileWriter(this.highscoreFile));
+        writer.write(String.valueOf(highscore));
+        writer.close();
     }
 
     public int readHighscore() throws IOException {
