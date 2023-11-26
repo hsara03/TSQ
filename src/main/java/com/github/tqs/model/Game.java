@@ -124,6 +124,9 @@ public class Game {
         }
     }
 
+    public int getScore() {
+        return this.highscore.getLastScore();
+    }
     public boolean isPlaying() {
         return playing;
     }

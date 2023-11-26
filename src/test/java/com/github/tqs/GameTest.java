@@ -7,9 +7,15 @@ import com.github.tqs.exceptions.word.InvalidNextCharException;
 import com.github.tqs.model.Difficulty;
 import com.github.tqs.model.Game;
 import com.github.tqs.model.Word;
+import org.junit.Before;
 import org.junit.Test;
-
 import java.io.IOException;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+
+
 
 public class GameTest {
 
@@ -37,7 +43,7 @@ public class GameTest {
     public void testInvalidType() {
         Exception result = null;
         try {
-            Game game = new Game("src/main/resources/words.mini.txt", 10, Difficulty.NORMAL);
+            Game game = new Game("src/main/resources/words.mini.txt", 10, Difficulty.NORMAL, () -> {});
             game.startGame();
             for (Word word:game.getTargetWords()) {
                 game.handleType(word.getContent().charAt(0));
@@ -59,7 +65,7 @@ public class GameTest {
     public void testInvalidTarget() {
         Exception result = null;
         try {
-            Game game = new Game("src/main/resources/words.mini.txt", 10, Difficulty.NORMAL);
+            Game game = new Game("src/main/resources/words.mini.txt", 10, Difficulty.NORMAL, () -> {});
             game.handleType(' '); // no targets will be available
         } catch (Exception exception){
             result=exception;

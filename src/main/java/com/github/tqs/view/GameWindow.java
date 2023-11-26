@@ -76,8 +76,18 @@ public class GameWindow extends Observable {
                         startX += fm.stringWidth(charAsString);
                     }
                 }
+                drawScore(g);
             }
+
+            private void drawScore(Graphics g) {
+                String scoreText = "Puntuación" + game.getScore();
+                g.setColor(Color.BLACK);
+                g.drawString(scoreText, width-200, 30);
+            }
+
         };
+
+
 
         panel.addKeyListener(new KeyAdapter() {
             @Override
