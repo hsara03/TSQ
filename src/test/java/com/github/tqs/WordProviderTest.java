@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
+import java.util.TimerTask;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -30,13 +31,21 @@ public class WordProviderTest {
 
     @Test
     public void testMockNextWord() throws IOException {
-        verify(mockProvider, atLeastOnce()).getNextWord(anyInt(), any());
+        TimerTask mockTimerTask = Mockito.mock(TimerTask.class);
+
+        when(mockProvider.getNextWord(anyInt(), any(TimerTask.class)))
+                .thenReturn(new Word("test", 0.5f, 1000, mockTimerTask));
+
+        Word result = mockProvider.getNextWord(10, mockTimerTask);
+
+        verify(mockProvider).getNextWord(anyInt(), any(TimerTask.class));
+        assertNotNull(result);
+        assertEquals("test", result.getContent());
     }
 
-    @Test
-    public void testMockInitialWords() throws IOException {
-        when(mockProvider.getNextWord(anyInt(), any())).thenReturn(new Word("test", 0.5f, 1000, null));
-    }
+
+
+
 
     /**
      * tries to initialize with a valid word list file

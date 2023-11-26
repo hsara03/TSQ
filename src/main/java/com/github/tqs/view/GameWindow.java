@@ -83,7 +83,7 @@ public class GameWindow extends Observable implements GameListener {
             }
 
             private void drawScore(Graphics g) {
-                String scoreText = "Puntuación" + game.getScore();
+                String scoreText = "Puntuación:  " + game.getScore();
                 g.setColor(Color.BLACK);
                 g.drawString(scoreText, width-200, 30);
             }

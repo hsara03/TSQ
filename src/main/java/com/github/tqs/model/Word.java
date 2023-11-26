@@ -53,7 +53,7 @@ public class Word {
         if(isCompleted()){
             if(this.task!=null){
                 this.task.cancel();
-                this.timer.cancel();;
+                this.timer.cancel();
             }
         }
     }
