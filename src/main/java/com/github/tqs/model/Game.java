@@ -61,6 +61,14 @@ public class Game {
         }
     }
 
+    public void increaseScore() {
+        this.score += this.scoreMultiplier;
+    }
+
+    public int getScore() {
+        return this.score;
+    }
+
     public void startGame() throws IOException {
         this.playing=true;
         for (int i = 0; i < this.scoreMultiplier; i++) {
@@ -103,6 +111,7 @@ public class Game {
         }
         word.type(typed);
         if (word.isCompleted()) {
+            increaseScore();
             difficulty++;
             targetWords.remove(word);
             targetWords.add(provider.getNextWord(getHeadroom(), new TimerTask() {
@@ -111,6 +120,7 @@ public class Game {
                     System.out.println("ran out of time");
                 }
             }));
+
             word=null;
         }
     }

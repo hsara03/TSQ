@@ -12,7 +12,7 @@ public class Main {
         try {
             GraphicsWindow.startGameWindow();
         } catch (Exception exception){
-            // TODO move
+            exception.printStackTrace();
         }
     }
 }

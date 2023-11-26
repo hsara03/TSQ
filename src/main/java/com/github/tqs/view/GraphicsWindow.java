@@ -2,10 +2,9 @@ package com.github.tqs.view;
 
 import com.github.tqs.exceptions.provider.NotEnoughWordsException;
 import com.github.tqs.exceptions.provider.UnableToReadWordsException;
-import com.github.tqs.exceptions.word.InvalidNextCharException;
-import com.github.tqs.exceptions.word.RanOutOfTimeException;
-import com.github.tqs.game.Game;
-import com.github.tqs.game.Word;
+import com.github.tqs.model.Difficulty;
+import com.github.tqs.model.Game;
+import com.github.tqs.model.Word;
 
 import javax.swing.*;
 import java.awt.*;
