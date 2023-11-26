@@ -2,19 +2,40 @@ package com.github.tqs;
 
 import com.github.tqs.exceptions.provider.NotEnoughWordsException;
 import com.github.tqs.exceptions.provider.UnableToReadWordsException;
+import com.github.tqs.model.Word;
 import com.github.tqs.model.WordProvider;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
+
+import java.io.IOException;
+
+import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
 
 public class WordProviderTest {
 
     private WordProvider invalidProvider;
     private WordProvider provider;
+    private WordProvider mockProvider;
 
     @Before
     public void setUp() {
         invalidProvider = new WordProvider(5);
         provider = new WordProvider(5);
+        mockProvider = Mockito.mock(WordProvider.class);
+    }
+
+    @Test
+    public void testMockNextWord() throws IOException {
+        verify(mockProvider, atLeastOnce()).getNextWord(anyInt(), any());
+    }
+
+    @Test
+    public void testMockInitialWords() throws IOException {
+        when(mockProvider.getNextWord(anyInt(), any())).thenReturn(new Word("test", 0.5f, 1000, null));
     }
 
     /**
@@ -29,7 +50,7 @@ public class WordProviderTest {
             // unexpected
             result=exception;
         }
-        assert result==null;
+        assertNull(result);
     }
 
     @Test
@@ -44,7 +65,7 @@ public class WordProviderTest {
             // unexpected
             result=exception;
         }
-        assert result==null;
+        assertNull(result);
     }
 
     /**
@@ -59,8 +80,8 @@ public class WordProviderTest {
             // thrown, test passed
             result = exception;
         }
-        assert result != null;
-        assert result instanceof UnableToReadWordsException;
+        assertNotNull(result);
+        assertTrue(result instanceof UnableToReadWordsException);
     }
 
     /**
@@ -75,8 +96,8 @@ public class WordProviderTest {
             // thrown, test passed
             result = exception;
         }
-        assert result != null;
-        assert result instanceof NotEnoughWordsException;
+        assertNotNull(result);
+        assertTrue(result instanceof NotEnoughWordsException);
     }
 
     /**
@@ -91,8 +112,8 @@ public class WordProviderTest {
             result = exception;
             // thrown, test passed
         }
-        assert result != null;
-        assert result instanceof NotEnoughWordsException;
+        assertNotNull(result);
+        assertTrue(result instanceof NotEnoughWordsException);
     }
 
     /**
@@ -107,8 +128,8 @@ public class WordProviderTest {
             result = exception;
             // thrown, test passed
         }
-        assert result != null;
-        assert result instanceof NotEnoughWordsException;
+        assertNotNull(result);
+        assertTrue(result instanceof NotEnoughWordsException);
     }
 
 }

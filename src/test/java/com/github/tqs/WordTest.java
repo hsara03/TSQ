@@ -13,6 +13,8 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.TimerTask;
 
+import static org.junit.Assert.*;
+
 public class WordTest {
 
     private WordProvider provider;
@@ -31,7 +33,7 @@ public class WordTest {
         Word word = provider.getNextWord();
         String content = word.getContent();
         word.type(content.charAt(0));
-        assert word.getTyped()!=null;
+        assertNotNull(word.getTyped());
     }
 
     /**
@@ -47,8 +49,8 @@ public class WordTest {
             result = exception;
             // expected
         }
-        assert result!=null;
-        assert result instanceof InvalidNextCharException;
+        assertNotNull(result);
+        assertTrue(result instanceof InvalidNextCharException);
     }
 
     /**
@@ -70,8 +72,8 @@ public class WordTest {
             // expected
             result=exception;
         }
-        assert result!=null;
-        assert result instanceof RanOutOfTimeException;
+        assertNotNull(result);
+        assertTrue(result instanceof RanOutOfTimeException);
     }
 
     /**
@@ -96,7 +98,7 @@ public class WordTest {
             // unexpected
             result=exception;
         }
-        assert result==null;
+        assertNull(result);
     }
 
     @Test
@@ -106,7 +108,7 @@ public class WordTest {
         for (int i = 0; i < content.length(); i++) {
             word.type(content.charAt(i));
         }
-        assert word.isCompleted();
+        assertTrue(word.isCompleted());
     }
 
     @Test
@@ -123,8 +125,8 @@ public class WordTest {
             // expected
             result=exception;
         }
-        assert result!=null;
-        assert result instanceof AlreadySpelledException;
+        assertNotNull(result);
+        assertTrue(result instanceof AlreadySpelledException);
     }
 
 }

@@ -1,30 +1,73 @@
 package com.github.tqs.model;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.util.Scanner;
 
 public class HighScoreManager {
+
+    private static String path = "highscore.txt";
+    private static HighScoreManager instance;
+
     private String filePath;
+    private File highscoreFile;
+    private int highscore;
+    private int lastScore;
 
-    public HighScoreManager(String filePath) {
+    private HighScoreManager(String filePath) throws IOException {
         this.filePath = filePath;
+        this.highscoreFile=new File(this.filePath);
+        if(!Files.isRegularFile(this.highscoreFile.toPath())){
+            Files.createFile(this.highscoreFile.toPath());
+        }
+        this.highscoreFile.setWritable(true);
+        this.highscoreFile.setReadable(true);
+        this.lastScore=-1;
     }
 
-    public int readHighScore() {
-        try {
-            String content = new String(Files.readAllBytes(Paths.get(filePath)));
-            return Integer.parseInt(content.trim());
-        } catch (Exception e) {
-            return 0;
-        }
+    public void resetCurrentScore(){
+        this.lastScore=0;
     }
 
-    public void writeHighScore(int score) {
-        try {
-            Files.write(Paths.get(filePath), String.valueOf(score).getBytes(), StandardOpenOption.CREATE);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public void incrementCurrentScore(int amount){
+        this.lastScore+=amount;
+    }
+
+    /**
+     * will return -1 if no last score is present
+     */
+    public int getLastScore(){
+        return this.lastScore;
+    }
+
+    public static HighScoreManager getInstance() throws IOException {
+        if(HighScoreManager.instance==null){
+            HighScoreManager.instance = new HighScoreManager(HighScoreManager.path);
         }
+        return HighScoreManager.instance;
+    }
+
+    public void setHighscore(int score) throws IOException {
+        this.readHighscore();
+        if(this.highscore<score) this.highscore=score;
+        BufferedWriter writer = new BufferedWriter(new FileWriter(this.highscoreFile));
+        writer.write(String.valueOf(score));
+        writer.close();
+    }
+
+    public int readHighscore() throws IOException {
+        this.highscore=-1;
+        Scanner myReader = new Scanner(this.highscoreFile);
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            int score =Integer.parseInt(data);
+            if(score>this.highscore) this.highscore=score;
+        }
+        myReader.close();
+        if(this.highscore<0) this.highscore=0;
+        return this.highscore;
     }
 }

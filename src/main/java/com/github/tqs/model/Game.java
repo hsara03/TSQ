@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.TimerTask;
+import java.util.concurrent.CompletableFuture;
 
 public class Game {
 
@@ -23,13 +24,12 @@ public class Game {
     private final List<Word> targetWords;
     private Word word;
     private int difficulty;
-    private int highscore;
+    private HighScoreManager highscore;
     private boolean playing;
-    private File highscoreFile;
-    private int score;
     private int scoreMultiplier;
+    private final Runnable finishTask;
 
-    public Game(String path, int minimumWords, Difficulty difficulty) throws NotEnoughWordsException, UnableToReadWordsException, IOException {
+    public Game(String path, int minimumWords, Difficulty difficulty, Runnable finishTask) throws NotEnoughWordsException, UnableToReadWordsException, IOException {
         switch (difficulty) {
             case NORMAL:
                 this.difficulty = 10;
@@ -43,11 +43,10 @@ public class Game {
         }
         this.word = null;
         this.targetWords= new ArrayList<>();
-        this.highscore = 0;
         this.playing = false;
         this.provider=new WordProvider(minimumWords);
         this.provider.readWordFile(path);
-        this.readHighscore();
+        this.finishTask=finishTask;
         switch (difficulty) {
             case NORMAL:
                 this.scoreMultiplier = 2;
@@ -59,30 +58,30 @@ public class Game {
                 this.scoreMultiplier = 1;
                 break;
         }
+        this.highscore = HighScoreManager.getInstance();
+        this.highscore.readHighscore();
+        this.highscore.resetCurrentScore();
     }
 
-    public void increaseScore() {
-        this.score += this.scoreMultiplier;
-    }
-
-    public int getScore() {
-        return this.score;
+    private TimerTask getEndOfTimeTask() {
+        return new TimerTask() {
+            @Override
+            public void run() {
+                playing=false;
+                try {
+                    highscore.setHighscore(highscore.getLastScore());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                finishTask.run();
+            }
+        };
     }
 
     public void startGame() throws IOException {
         this.playing=true;
         for (int i = 0; i < this.scoreMultiplier; i++) {
-            targetWords.add(provider.getNextWord(getHeadroom(), new TimerTask() {
-                @Override
-                public void run() {
-                    playing = false;
-                    try {
-                        setHighscore(difficulty);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }));
+            targetWords.add(provider.getNextWord(getHeadroom(), getEndOfTimeTask()));
         }
     }
 
@@ -97,7 +96,7 @@ public class Game {
         return (int) headroom*1000;
     }
 
-    public void handleType(char typed) throws IOException, InvalidNextCharException, AlreadySpelledException, RanOutOfTimeException, NoTargetWordException {
+    public void handleType(char typed) throws InvalidNextCharException, AlreadySpelledException, RanOutOfTimeException, NoTargetWordException {
         if(word==null){
             for (Word typedWord:targetWords) {
                 if(typedWord.getContent().charAt(0)==typed) {
@@ -111,49 +110,21 @@ public class Game {
         }
         word.type(typed);
         if (word.isCompleted()) {
-            increaseScore();
+            this.highscore.incrementCurrentScore(this.scoreMultiplier);
             difficulty++;
             targetWords.remove(word);
-            targetWords.add(provider.getNextWord(getHeadroom(), new TimerTask() {
-                @Override
-                public void run() {
-                    System.out.println("ran out of time");
-                }
-            }));
-
             word=null;
+            CompletableFuture.runAsync(() -> {
+                try {
+                    targetWords.add(provider.getNextWord(getHeadroom(), getEndOfTimeTask()));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
         }
     }
 
     public boolean isPlaying() {
         return playing;
-    }
-
-    public void setHighscore(int highscore) throws IOException {
-        this.readHighscore();
-        this.highscore=highscore;
-        BufferedWriter writer = new BufferedWriter(new FileWriter(this.highscoreFile));
-        writer.write(String.valueOf(highscore));
-        writer.close();
-    }
-
-    public int readHighscore() throws IOException {
-        this.highscore=-1;
-        if(this.highscoreFile==null){
-            this.highscoreFile=new File("highscore.txt");
-        }
-        if(!Files.isRegularFile(this.highscoreFile.toPath())){
-            Files.createFile(this.highscoreFile.toPath());
-        }
-        this.highscoreFile.setWritable(true);
-        this.highscoreFile.setReadable(true);
-        Scanner myReader = new Scanner(this.highscoreFile);
-        while (myReader.hasNextLine()) {
-            String data = myReader.nextLine();
-            this.highscore=Integer.parseInt(data);
-        }
-        myReader.close();
-        if(this.highscore<0) this.highscore=0;
-        return this.highscore;
     }
 }

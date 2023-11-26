@@ -4,36 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="doing">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Difficulty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_10_2023_9_37__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_10_2023_9_37__Changes_.xml" afterDir="false" />
+    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="fixed tests, moved to use mvc">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/SetupWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/GraphicsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GraphicsWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/highscore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscore.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/WordProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/WordProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/game/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Word.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/HighScoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/HighScoreManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GraphicsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/GraphicsWindow.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/WordProvider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/game/Game$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/game/Game$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/game/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/game/Word.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/GameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/GameTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordProviderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordProviderTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest.class" afterDir="false" />
     </list>
-    <list id="f9e9d20d-300f-4c91-a886-f79d545802af" name="Changes by h_sar" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/GraphicsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GraphicsWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java" afterDir="false" />
+    <list id="f9e9d20d-300f-4c91-a886-f79d545802af" name="Changes by h_sar" comment="Changes by h_sar">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GraphicsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,43 +44,57 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GraphicsWindow.java">
+    <file path="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java">
       <ranges>
-        <range start1="0" end1="1" start2="0" end2="1" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="4" end1="8" start2="4" end2="7" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="15" end1="17" start2="14" end2="16" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="22" end1="23" start2="21" end2="22" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="28" end1="29" start2="27" end2="28" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="30" end1="31" start2="29" end2="44" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="45" end1="46" start2="58" end2="59" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="51" end1="54" start2="64" end2="67" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="57" end1="58" start2="70" end2="71" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="59" end1="60" start2="72" end2="73" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="63" end1="64" start2="76" end2="77" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="68" end1="69" start2="81" end2="82" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="74" end1="75" start2="87" end2="87" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="83" end1="85" start2="95" end2="97" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="9" end1="9" start2="9" end2="10" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
+        <range start1="10" end1="11" start2="11" end2="11" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
+        <range start1="12" end1="12" start2="12" end2="18" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
+        <range start1="19" end1="20" start2="25" end2="26" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="22" end1="23" start2="28" end2="29" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="26" end1="28" start2="32" end2="34" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="39" end1="40" start2="45" end2="46" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
+        <range start1="49" end1="51" start2="55" end2="57" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="61" end1="62" start2="67" end2="68" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
+        <range start1="66" end1="68" start2="72" end2="74" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
       </ranges>
     </file>
-    <file path="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java">
+    <file path="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java">
       <ranges>
-        <range start1="2" end1="2" start2="2" end2="4" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="10" end1="11" start2="12" end2="13" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="12" end1="13" start2="14" end2="15" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
+        <range start1="14" end1="16" start2="14" end2="15" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="19" end1="20" start2="18" end2="19" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="21" end1="26" start2="20" end2="28" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="27" end1="27" start2="29" end2="32" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="28" end1="28" start2="33" end2="47" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="29" end1="42" start2="48" end2="49" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="43" end1="44" start2="50" end2="51" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="46" end1="53" start2="53" end2="53" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="58" end1="60" start2="58" end2="59" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="61" end1="67" start2="60" end2="66" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="68" end1="84" start2="67" end2="76" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="86" end1="86" start2="78" end2="79" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
+        <range start1="87" end1="87" start2="80" end2="87" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
+        <range start1="88" end1="88" start2="88" end2="90" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
       </ranges>
     </file>
     <file path="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java">
       <ranges>
-        <range start1="0" end1="1" start2="0" end2="1" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="2" end1="3" start2="2" end2="2" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="29" end1="29" start2="28" end2="30" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="30" end1="31" start2="31" end2="43" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="32" end1="33" start2="44" end2="44" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="39" end1="39" start2="50" end2="61" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="40" end1="40" start2="62" end2="70" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="43" end1="44" start2="73" end2="74" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="91" end1="91" start2="121" end2="122" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="99" end1="99" start2="130" end2="131" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
+        <range start1="18" end1="18" start2="18" end2="19" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="25" end1="26" start2="26" end2="27" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="27" end1="29" start2="28" end2="28" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="30" end1="30" start2="29" end2="30" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="31" end1="32" start2="31" end2="32" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="45" end1="46" start2="45" end2="45" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="49" end1="50" start2="48" end2="49" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="61" end1="61" start2="60" end2="63" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="63" end1="65" start2="65" end2="78" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="67" end1="71" start2="80" end2="80" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="74" end1="85" start2="83" end2="84" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="99" end1="100" start2="98" end2="99" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="113" end1="114" start2="112" end2="113" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="116" end1="123" start2="115" end2="115" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="124" end1="124" start2="116" end2="123" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
+        <range start1="127" end1="127" start2="126" end2="129" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
+        <range start1="130" end1="158" start2="132" end2="132" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
       </ranges>
     </file>
   </component>
@@ -212,11 +218,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GameTest.testInvalidType" />
+        <item itemvalue="JUnit.WordTest.typeJustBeforeExpire" />
         <item itemvalue="JUnit.WordTest.overspell" />
         <item itemvalue="JUnit.WordTest.spellCompletely" />
-        <item itemvalue="JUnit.WordTest.typeJustBeforeExpire" />
         <item itemvalue="JUnit.GameTest.testInvalidTarget" />
-        <item itemvalue="JUnit.GameTest.testInvalidType" />
       </list>
     </recent_temporary>
   </component>
@@ -247,7 +253,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698664092258</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fixed tests, moved to use mvc">
+      <option name="closed" value="true" />
+      <created>1701019597176</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701019597176</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Changes by h_sar">
+      <option name="closed" value="true" />
+      <created>1701019603524</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701019603524</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +277,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix word test" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix word test" />
+    <MESSAGE value="fixed tests, moved to use mvc" />
+    <MESSAGE value="Changes by h_sar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by h_sar" />
   </component>
 </project>

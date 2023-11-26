@@ -17,15 +17,15 @@ public class GameTest {
      * tries to initialize a word with an invalid word list file
      */
     @Test()
-    public void testInvalidFile() throws IOException, NotEnoughWordsException {
+    public void testInvalidFile() {
         Exception result = null;
         try {
-            new Game("invalid file", 10, Difficulty.NORMAL);
+            new Game("invalid file", 10, Difficulty.NORMAL, () -> {});
         } catch (Exception exception){
             result=exception;
         }
-        assert result != null;
-        assert result instanceof UnableToReadWordsException;
+        assertNotNull(result);
+        assertTrue(result instanceof UnableToReadWordsException);
     }
 
     /**
@@ -47,8 +47,8 @@ public class GameTest {
         } catch (Exception exception){
             result=exception;
         }
-        assert result != null;
-        assert result instanceof InvalidNextCharException;
+        assertNotNull(result);
+        assertTrue(result instanceof InvalidNextCharException);
     }
 
     /**
@@ -64,8 +64,8 @@ public class GameTest {
         } catch (Exception exception){
             result=exception;
         }
-        assert result != null;
-        assert result instanceof NoTargetWordException;
+        assertNotNull(result);
+        assertTrue(result instanceof NoTargetWordException);
     }
 
 
