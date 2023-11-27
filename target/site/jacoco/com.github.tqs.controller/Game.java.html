@@ -137,34 +137,45 @@ public class Game {
     public void startGame() throws IOException {
 <span class="fc" id="L138">        this.playing=true;</span>
 <span class="fc bfc" id="L139" title="All 2 branches covered.">        for (int i = 0; i &lt; this.scoreMultiplier; i++) {</span>
-<span class="fc" id="L140">            targetWords.add(provider.getNextWord(getHeadroom(), getEndOfTimeTask()));</span>
+<span class="fc" id="L140">            int delay = i*1000;</span>
+<span class="fc" id="L141">            Word word = provider.getNextWord(getHeadroom()+delay, getEndOfTimeTask());</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">            if(i&gt;0){</span>
+<span class="fc" id="L143">                new Timer().schedule(new TimerTask() {</span>
+                    @Override
+                    public void run() {
+<span class="fc" id="L146">                        targetWords.add(word);</span>
+<span class="fc" id="L147">                    }</span>
+                }, delay);
+            } else {
+<span class="fc" id="L150">                targetWords.add(word);</span>
+            }
         }
-<span class="fc" id="L142">    }</span>
+<span class="fc" id="L153">    }</span>
 
     //Calculate and returns a time limit value for the player to complete a word.
     //The time is adjusted based n the game difficulty and ensure a minimum margin.
     private int getHeadroom(){
-<span class="fc" id="L147">        float minHeadroom = 5;</span>
-<span class="fc" id="L148">        float headroom = 30 - difficulty;</span>
-<span class="pc bpc" id="L149" title="1 of 2 branches missed.">        if(headroom&lt;minHeadroom) headroom=minHeadroom;</span>
-<span class="fc" id="L150">        return (int) headroom*1000;</span>
+<span class="fc" id="L158">        float minHeadroom = 5;</span>
+<span class="fc" id="L159">        float headroom = 30 - difficulty;</span>
+<span class="pc bpc" id="L160" title="1 of 2 branches missed.">        if(headroom&lt;minHeadroom) headroom=minHeadroom;</span>
+<span class="fc" id="L161">        return (int) headroom*1000;</span>
     }
 
     public List&lt;Word&gt; getTargetWords() {
-<span class="fc" id="L154">        return targetWords;</span>
+<span class="fc" id="L165">        return targetWords;</span>
     }
 
     // Get the current score
     public int getScore() {
-<span class="fc" id="L159">        return this.highscore.getLastScore().score;</span>
+<span class="fc" id="L170">        return this.highscore.getLastScore().score;</span>
     }
 
     public int getScoreMultiplier() {
-<span class="fc" id="L163">        return this.scoreMultiplier;</span>
+<span class="fc" id="L174">        return this.scoreMultiplier;</span>
     }
 
     public boolean isPlaying() {
-<span class="fc" id="L167">        return playing;</span>
+<span class="fc" id="L178">        return playing;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

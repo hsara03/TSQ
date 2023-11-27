@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.github.tqs.WordProviderTest" time="0.116" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.github.tqs.WordProviderTest" time="0.104" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="C:\Users\quique\.jdks\openjdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\quique\AppData\Local\Temp\surefire11335652227676203601\surefirebooter18107821426118190977.jar C:\Users\quique\AppData\Local\Temp\surefire11335652227676203601 2023-11-27T23-52-40_612-jvmRun1 surefire11047119582088027559tmp surefire_07925363683754350683tmp"/>
+    <property name="sun.java.command" value="C:\Users\quique\AppData\Local\Temp\surefire16105632473980534886\surefirebooter8870864818108758359.jar C:\Users\quique\AppData\Local\Temp\surefire16105632473980534886 2023-11-28T00-31-39_627-jvmRun1 surefire11500204471164290192tmp surefire_013039649277127050579tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\quique\Downloads\TSQ\target\test-classes;C:\Users\quique\Downloads\TSQ\target\classes;C:\Users\quique\.m2\repository\org\mockito\mockito-core\5.6.0\mockito-core-5.6.0.jar;C:\Users\quique\.m2\repository\net\bytebuddy\byte-buddy\1.14.8\byte-buddy-1.14.8.jar;C:\Users\quique\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.8\byte-buddy-agent-1.14.8.jar;C:\Users\quique\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\quique\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.5.1\junit-jupiter-api-5.5.1.jar;C:\Users\quique\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\quique\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\quique\.m2\repository\org\junit\platform\junit-platform-commons\1.7.2\junit-platform-commons-1.7.2.jar;C:\Users\quique\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.5.1\junit-jupiter-engine-5.5.1.jar;C:\Users\quique\.m2\repository\org\junit\platform\junit-platform-engine\1.7.2\junit-platform-engine-1.7.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\quique\AppData\Local\Temp\surefire11335652227676203601\surefirebooter18107821426118190977.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\quique\AppData\Local\Temp\surefire16105632473980534886\surefirebooter8870864818108758359.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21+35-2513"/>
@@ -59,11 +59,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testNotEnoughWords" classname="com.github.tqs.WordProviderTest" time="0.078"/>
-  <testcase name="testEmptyWords" classname="com.github.tqs.WordProviderTest" time="0.001"/>
+  <testcase name="testNotEnoughWords" classname="com.github.tqs.WordProviderTest" time="0.071"/>
+  <testcase name="testEmptyWords" classname="com.github.tqs.WordProviderTest" time="0.002"/>
   <testcase name="testInvalidFile" classname="com.github.tqs.WordProviderTest" time="0.001"/>
-  <testcase name="testGetNextWord" classname="com.github.tqs.WordProviderTest" time="0.01"/>
-  <testcase name="testValidFile" classname="com.github.tqs.WordProviderTest" time="0.005"/>
-  <testcase name="testNotEnoughValidWords" classname="com.github.tqs.WordProviderTest" time="0.001"/>
-  <testcase name="testNextWords" classname="com.github.tqs.WordProviderTest" time="0.016"/>
+  <testcase name="testGetNextWord" classname="com.github.tqs.WordProviderTest" time="0.008"/>
+  <testcase name="testValidFile" classname="com.github.tqs.WordProviderTest" time="0.004"/>
+  <testcase name="testNotEnoughValidWords" classname="com.github.tqs.WordProviderTest" time="0.002"/>
+  <testcase name="testNextWords" classname="com.github.tqs.WordProviderTest" time="0.014"/>
 </testsuite>

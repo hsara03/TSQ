@@ -137,7 +137,18 @@ public class Game {
     public void startGame() throws IOException {
         this.playing=true;
         for (int i = 0; i < this.scoreMultiplier; i++) {
-            targetWords.add(provider.getNextWord(getHeadroom(), getEndOfTimeTask()));
+            int delay = i*1000;
+            Word word = provider.getNextWord(getHeadroom()+delay, getEndOfTimeTask());
+            if(i>0){
+                new Timer().schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        targetWords.add(word);
+                    }
+                }, delay);
+            } else {
+                targetWords.add(word);
+            }
         }
     }
 

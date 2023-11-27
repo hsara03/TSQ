@@ -10,8 +10,9 @@ AstroType,com.github.tqs.model.exceptions.word,InvalidWordException,0,3,0,0,0,1,
 AstroType,com.github.tqs.model.exceptions.word,RanOutOfTimeException,0,3,0,0,0,1,0,1,0,1
 AstroType,com.github.tqs.model.exceptions.word,InvalidNextCharException,0,3,0,0,0,1,0,1,0,1
 AstroType,com.github.tqs.view.exceptions,InputCancelledException,3,0,0,0,1,0,1,0,1,0
+AstroType,com.github.tqs.controller,Game.new TimerTask() {...},0,17,0,0,0,3,0,2,0,2
 AstroType,com.github.tqs.controller,Game.new TimerTask() {...},0,10,0,0,0,3,0,2,0,2
-AstroType,com.github.tqs.controller,Game,11,278,3,25,5,70,3,24,0,12
+AstroType,com.github.tqs.controller,Game,11,300,3,27,5,74,3,25,0,12
 AstroType,com.github.tqs.model.exceptions.score,InvalidNameException,0,3,0,0,0,1,0,1,0,1
 AstroType,com.github.tqs.model.exceptions.score,ScoreDataInvalid,0,3,0,0,0,1,0,1,0,1
 AstroType,com.github.tqs.view,SetupWindow,147,0,10,0,39,0,10,0,5,0

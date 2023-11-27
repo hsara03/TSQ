@@ -26,4 +26,5 @@ com\github\tqs\model\exceptions\word\InvalidWordException.class
 com\github\tqs\model\exceptions\word\AlreadySpelledException.class
 com\github\tqs\model\Word.class
 com\github\tqs\view\WindowListener.class
+com\github\tqs\controller\Game$3.class
 com\github\tqs\model\exceptions\game\NoTargetWordException.class

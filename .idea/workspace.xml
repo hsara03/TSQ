@@ -4,12 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="fix junit version">
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" afterDir="false" />
+    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="improved comment consistency">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/controller/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/ScoreWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/controller/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/controller/Game$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/controller/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/controller/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.github.tqs.controller/Game.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.github.tqs.controller/Game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.github.tqs.controller/Game.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.github.tqs.controller/Game.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.github.tqs.controller/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.github.tqs.controller/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.github.tqs.controller/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.github.tqs.controller/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.GameTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.GameTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.HighScoreManagerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.HighScoreManagerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.WordProviderTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.WordProviderTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.WordTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.WordTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.GameTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.GameTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.HighScoreManagerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.HighScoreManagerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.WordProviderTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.WordProviderTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.WordTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.WordTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/GameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/GameTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/HighScoreManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/HighScoreManagerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordProviderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordProviderTest.class" afterDir="false" />
     </list>
-    <list id="f9e9d20d-300f-4c91-a886-f79d545802af" name="Changes by h_sar" comment="Changes by h_sar">
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" afterDir="false" />
-    </list>
+    <list id="f9e9d20d-300f-4c91-a886-f79d545802af" name="Changes by h_sar" comment="add missing comment" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,14 +53,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java">
-      <ranges>
-        <range start1="103" end1="104" start2="103" end2="104" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="151" end1="151" start2="151" end2="159" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -47,23 +62,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/quique/Desktop",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/quique/Desktop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\quique\Downloads\TSQ\src\main\resources\sounds" />
@@ -122,17 +137,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in AstroType (5)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AstroType" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.tqs.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.github.tqs" />
-      <option name="MAIN_CLASS_NAME" value="com.github.tqs.GameTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -141,7 +149,7 @@
       <list>
         <item itemvalue="JUnit.All in AstroType (4)" />
         <item itemvalue="JUnit.All in AstroType (3)" />
-        <item itemvalue="JUnit.GameTest" />
+        <item itemvalue="JUnit.All in AstroType (5)" />
         <item itemvalue="JUnit.All in AstroType (2)" />
         <item itemvalue="JUnit.All in AstroType (1)" />
       </list>
@@ -169,7 +177,8 @@
       <workItem from="1701081775755" duration="1195000" />
       <workItem from="1701083249259" duration="9019000" />
       <workItem from="1701121974353" duration="170000" />
-      <workItem from="1701122157819" duration="3656000" />
+      <workItem from="1701122157819" duration="5456000" />
+      <workItem from="1701127784395" duration="1477000" />
     </task>
     <task id="LOCAL-00001" summary="fix word test">
       <option name="closed" value="true" />
@@ -299,7 +308,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701125611791</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="improved comment consistency">
+      <option name="closed" value="true" />
+      <created>1701126355853</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1701126355853</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add missing comment">
+      <option name="closed" value="true" />
+      <created>1701126367552</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1701126367552</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,13 +354,16 @@
     <MESSAGE value="java 21" />
     <MESSAGE value="update tests" />
     <MESSAGE value="fix junit version" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix junit version" />
+    <MESSAGE value="improved comment consistency" />
+    <MESSAGE value="add missing comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="add missing comment" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TSQ$All_in_AstroType__4_.ic" NAME="All in AstroType (4) Coverage Results" MODIFIED="1701121099601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/TSQ$All_in_AstroType.ic" NAME="All in AstroType Coverage Results" MODIFIED="1701121416532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/TSQ$All_in_AstroType__3_.ic" NAME="All in AstroType (3) Coverage Results" MODIFIED="1701121032619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/TSQ$All_in_AstroType__2_.ic" NAME="All in AstroType (2) Coverage Results" MODIFIED="1701121004375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/TSQ$All_in_AstroType__1_.ic" NAME="All in AstroType (1) Coverage Results" MODIFIED="1701121567813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TSQ$All_in_AstroType__5_.ic" NAME="All in AstroType (5) Coverage Results" MODIFIED="1701127703631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TSQ$All_in_AstroType.ic" NAME="All in AstroType Coverage Results" MODIFIED="1701127622699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TSQ$All_in_AstroType__3_.ic" NAME="All in AstroType (3) Coverage Results" MODIFIED="1701127791191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TSQ$All_in_AstroType__2_.ic" NAME="All in AstroType (2) Coverage Results" MODIFIED="1701127687806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TSQ$All_in_AstroType__1_.ic" NAME="All in AstroType (1) Coverage Results" MODIFIED="1701127676397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
