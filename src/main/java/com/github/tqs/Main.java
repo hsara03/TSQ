@@ -54,9 +54,10 @@ public class Main implements WindowListener {
             }
         });
         game.startPlaying();
-        // 3. let the users play again after dying
+        // 3. Let the users play again after dying
     }
 
+    // Handle the windowClosed event
     @Override
     public void windowClosed() throws IOException, NotEnoughWordsException, FontFormatException, UnableToReadWordsException, InputCancelledException, NoWordsException {
         // Show the game window again after it's closed

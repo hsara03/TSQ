@@ -30,7 +30,8 @@ public class WordProvider {
         }
     }
 
-    public void readWordFile(String filePath) throws UnableToReadWordsException, NotEnoughWordsException {
+    // Read words from the word file, checking for validity and minimum word count
+    public void readWordFile(String filePath) throws UnableToReadWordsException, NotEnoughWordsException, NoWordsException {
         this.fileName=filePath;
         File file = new File(filePath);
         try {
@@ -54,10 +55,12 @@ public class WordProvider {
         }
     }
 
+    // Get the next word from the word file
     public Word getNextWord() throws IOException{
         return this.getNextWord(-1, null);
     }
 
+    //Get the next word with a specified headroom and TimerTak
     public Word getNextWord(int headroom, TimerTask task) throws IOException {
         String word=null;
         while(true){
@@ -67,6 +70,7 @@ public class WordProvider {
                 word = bufferedReader.readLine();
             }
 
+            //If the end of the file is reached, reset the bufferedReader
             if(word==null) {
                 this.bufferedReader.close();
                 this.bufferedReader = new BufferedReader(new FileReader(this.fileName));

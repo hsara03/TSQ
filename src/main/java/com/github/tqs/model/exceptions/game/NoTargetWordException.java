@@ -1,4 +1,4 @@
-package com.github.tqs.exceptions.game;
+package com.github.tqs.model.exceptions.game;
 
 public class NoTargetWordException extends Exception {
 }

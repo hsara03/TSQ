@@ -44,13 +44,24 @@ public class Word {
         return this.typed;
     }
 
+    //Handle the typing of a character
     public void type(char letter) throws AlreadySpelledException, InvalidNextCharException, RanOutOfTimeException {
+        // Check if the word is already completely typed
         if(this.typed.length()>=this.content.length()) throw new AlreadySpelledException();
+
+        //Get the next character that should be typed
         String nextCharString = this.content.substring(this.typed.length(),this.typed.length()+1);
         char nextChar = nextCharString.charAt(0);
+
+        // Check if the typed character matches the expected next character
         if(nextChar!=letter) throw new InvalidNextCharException();
+
+        // Check if the word ran out of time
         if(this.ranOutOfTime()) throw new RanOutOfTimeException();
+
+        // Append the typed character to the already typed characters
         this.typed+=nextChar;
+
         if(isCompleted()){
             if(this.task!=null){
                 this.task.cancel();
@@ -63,13 +74,15 @@ public class Word {
         return this.content;
     }
 
+    // Get the X-coordinate position of the word on the screen
     public float getX() {
         return this.x;
     }
 
     /**
-     * returns 0% if all time is still left, 100% if time has gone by
-     * @return
+     * Retunrs the percentage of time that has passed
+     * 0% if all time is still left, 100% if the time has gone by.
+     * @return The percentage of time passed
      */
     public float timePercent(){
         return (System.currentTimeMillis()-this.start)/(float)time;

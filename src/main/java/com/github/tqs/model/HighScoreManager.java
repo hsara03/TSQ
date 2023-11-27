@@ -19,10 +19,11 @@ public class HighScoreManager {
 
     private HighScoreManager(String filePath) throws IOException {
         this.filePath = filePath;
-        this.highscoreFile=new File(this.filePath);
-        if(!Files.isRegularFile(this.highscoreFile.toPath())){
-            Files.createFile(this.highscoreFile.toPath());
-        }
+
+        // Create the highscore file if it doesn't exist
+        this.createFile();
+
+        // Set file permissions
         this.highscoreFile.setWritable(true);
         this.highscoreFile.setReadable(true);
 
@@ -55,17 +56,20 @@ public class HighScoreManager {
         this.lastScore=new Score(this.playerName, 0);
     }
 
+    // Increment the current score by a specified amount
     public void incrementCurrentScore(int amount){
         this.lastScore = new Score(this.playerName, this.lastScore.score + amount);
     }
 
     /**
-     * will return -1 if no last score is present
+     * Returns the last obtained score.
+     * If no last score is present, it returns a Score object with a score of -1.
      */
     public Score getLastScore(){
         return this.lastScore;
     }
 
+    // Get the singleton instance of HighScoreManager
     public static HighScoreManager getInstance() throws IOException {
         if(HighScoreManager.instance==null){
             HighScoreManager.instance = new HighScoreManager(HighScoreManager.path);

@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 public class GameTest {
 
     /**
-     * tries to initialize a word with an invalid word list file
+     * Test: Tries to initialize a word with an invalid word list file.
      */
     @Test()
     public void testInvalidFile() {
@@ -38,13 +38,14 @@ public class GameTest {
     }
 
     /**
-     * tries to spell out a word with an invalid character; first, selects a word from the generated
-     * word list, then, after selecting a word (trying to spell its first character), inputs an invalid
-     * character
+     * Test: Tries to spell out a word with an invalid character.
+     * First, selects a word from the generated word list, then, after selecting a word
+     * (trying to spell its first character), inputs an invalid character
      */
     @Test()
     public void testInvalidType() {
         Exception result = null;
+
         try {
             Game game = new Game("src/main/resources/words.mini.txt", 10, Difficulty.NORMAL);
             game.startGame();
@@ -54,15 +55,15 @@ public class GameTest {
             }
             game.handleType(' '); // invalid char
         } catch (Exception exception){
-            result=exception;
+            result = exception;
         }
         assertNotNull(result);
         assertTrue(result instanceof InvalidNextCharException);
     }
 
     /**
-     * tries to spell out starting with an invalid character, when no word has been picked
-     * as a target yet, so, no valid targets will resolve for the first character being typed
+     * Test: Tries to spell out starting with an invalid character, when no word has been picked
+     * as a target yet, so, no valid targets will resolve for the first character being typed.
      */
     @Test()
     public void testInvalidTarget() {
@@ -71,7 +72,7 @@ public class GameTest {
             Game game = new Game("src/main/resources/words.mini.txt", 10, Difficulty.NORMAL);
             game.handleType(' '); // no targets will be available
         } catch (Exception exception){
-            result=exception;
+            result = exception;
         }
         assertNotNull(result);
         assertTrue(result instanceof NoTargetWordException);

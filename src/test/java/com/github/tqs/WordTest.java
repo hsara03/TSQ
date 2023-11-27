@@ -31,10 +31,11 @@ public class WordTest {
     }
 
     /**
-     * try to spell out a single (valid) letter
+     * Attempts to spell out a single (valid) letter
      */
     @Test
     public void typeValidChar() throws IOException, AlreadySpelledException, RanOutOfTimeException, InvalidNextCharException {
+        // Retrieves a word from the provider and types its first character
         Word word = provider.getNextWord();
         String content = word.getContent();
         word.type(content.charAt(0));
@@ -42,39 +43,41 @@ public class WordTest {
     }
 
     /**
-     * try to spell out a single (invalid) letter
+     * Attempts to spell out a single (invalid) letter
      */
     @Test
     public void typeInvalidChar() {
+        // Verifies that attempting to type an invalid character results in an InvalidNextCharException
         Exception result = null;
         try {
             Word word = provider.getNextWord();
             word.type('.');
         } catch(Exception exception){
             result = exception;
-            // expected
+            // Expected behaviour
         }
         assertNotNull(result);
         assertTrue(result instanceof InvalidNextCharException);
     }
 
     /**
-     * try to spell out a word after it the time to type it expired (test valor limit)
+     * Attempts to spell out a word after it's time to type it has expired (boundary test)
      */
     @Test
     public void ranOutOfTime() {
+        // Verifies that attempting to type a word after its time has expired results in a RanOutOfTimeException
         Exception result = null;
         try {
             Word word = provider.getNextWord(0, new TimerTask() {
                 @Override
                 public void run() {
-                    // dummy task
+                    // Dummy task
                 }
             });
             Thread.sleep(1);
             word.type(word.getContent().charAt(0));
         } catch(Exception exception){
-            // expected
+            // Expected behavior
             result=exception;
         }
         assertNotNull(result);
@@ -82,32 +85,37 @@ public class WordTest {
     }
 
     /**
-     * try to spell out a word just barely before it expires (test valor frontera)
+     * Attempts to spell out a word just barely before it expires (boundary test)
      */
     @Test
     public void typeJustBeforeExpire() {
+        // Verifies that typing a word just before it expires results in no exceptions
         Exception result = null;
         try {
             int headroom = 100;
-            int grace = 30; // not all cpus will take the same amount of time to process the next instruction
+            int grace = 30; // not all CPUs will take the same amount of time to process the next instruction
             Word word = provider.getNextWord(headroom, new TimerTask() {
                 @Override
                 public void run() {
-                    // dummy task
+                    // Dummy task
                 }
             });
             long finish = word.getStart()+headroom;
             Thread.sleep(finish-System.currentTimeMillis()-grace);
             word.type(word.getContent().charAt(0));
         } catch(Exception exception){
-            // unexpected
+            // Unexpected behaviour
             result=exception;
         }
         assertNull(result);
     }
 
+    /**
+     * Spells out a word completely
+     */
     @Test
     public void spellCompletely() throws IOException, AlreadySpelledException, InvalidNextCharException, RanOutOfTimeException {
+        // Spells out a word completely and checks if it is marked as completed
         Word word = provider.getNextWord();
         String content = word.getContent();
         for (int i = 0; i < content.length(); i++) {
@@ -116,8 +124,12 @@ public class WordTest {
         assertTrue(word.isCompleted());
     }
 
+    /**
+     * Attempts to overspell a word
+     */
     @Test
     public void overspell() {
+        // Verifies that attempting to overspell a word results in an AlreadySpelledException
         Exception result = null;
         try {
             Word word = provider.getNextWord();
@@ -127,7 +139,7 @@ public class WordTest {
             }
             word.type('a');
         } catch(Exception exception){
-            // expected
+            // Expected behavior
             result=exception;
         }
         assertNotNull(result);
