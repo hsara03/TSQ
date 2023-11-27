@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="score shown">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameLoopTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/highscore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscore.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Word.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/WordProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/WordProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Word.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Word.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/WordProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/model/WordProvider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/GameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/GameTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordProviderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordProviderTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest.class" afterDir="false" />
-    </list>
+    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="mock test" />
     <list id="f9e9d20d-300f-4c91-a886-f79d545802af" name="Changes by h_sar" comment="Changes by h_sar" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +173,7 @@
       <workItem from="1700911847276" duration="1002000" />
       <workItem from="1701026717779" duration="4417000" />
       <workItem from="1701081775755" duration="1195000" />
-      <workItem from="1701083249259" duration="8794000" />
+      <workItem from="1701083249259" duration="9019000" />
     </task>
     <task id="LOCAL-00001" summary="fix word test">
       <option name="closed" value="true" />
@@ -236,7 +215,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701024696638</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="mock test">
+      <option name="closed" value="true" />
+      <created>1701096827306</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701096827306</updated>
+    </task>
+    <task id="LOCAL-00007" summary="mock test">
+      <option name="closed" value="true" />
+      <created>1701096842093</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701096842093</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +242,7 @@
     <MESSAGE value="fixed tests, moved to use mvc" />
     <MESSAGE value="score shown" />
     <MESSAGE value="Changes by h_sar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by h_sar" />
+    <MESSAGE value="mock test" />
+    <option name="LAST_COMMIT_MESSAGE" value="mock test" />
   </component>
 </project>
