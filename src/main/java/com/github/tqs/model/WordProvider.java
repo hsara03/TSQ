@@ -17,9 +17,10 @@ public class WordProvider {
     private int lineCount;
     private int minimumWords;
 
-    public WordProvider(int minimumWords){
+    public WordProvider(int minimumWords, BufferedReader reader){
         this.minimumWords=minimumWords;
         this.lineCount=0;
+        this.bufferedReader = reader;
     }
 
     private void checkWord(String word) throws InvalidWordException{

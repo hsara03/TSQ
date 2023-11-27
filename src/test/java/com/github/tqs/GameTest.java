@@ -7,12 +7,12 @@ import com.github.tqs.exceptions.word.InvalidNextCharException;
 import com.github.tqs.model.Difficulty;
 import com.github.tqs.model.Game;
 import com.github.tqs.model.Word;
-import org.junit.Before;
-import org.junit.Test;
-import java.io.IOException;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Assertions;
+
+import java.io.IOException;
 
 
 
@@ -30,8 +30,8 @@ public class GameTest {
         } catch (Exception exception){
             result=exception;
         }
-        assertNotNull(result);
-        assertTrue(result instanceof UnableToReadWordsException);
+        Assertions.assertNotNull(result);
+        Assertions.assertTrue(result instanceof UnableToReadWordsException);
     }
 
     /**
@@ -53,8 +53,8 @@ public class GameTest {
         } catch (Exception exception){
             result=exception;
         }
-        assertNotNull(result);
-        assertTrue(result instanceof InvalidNextCharException);
+        Assertions.assertNotNull(result);
+        Assertions.assertTrue(result instanceof InvalidNextCharException);
     }
 
     /**
@@ -70,9 +70,11 @@ public class GameTest {
         } catch (Exception exception){
             result=exception;
         }
-        assertNotNull(result);
-        assertTrue(result instanceof NoTargetWordException);
+        Assertions.assertNotNull(result);
+        Assertions.assertTrue(result instanceof NoTargetWordException);
     }
+
+
 
 
 }

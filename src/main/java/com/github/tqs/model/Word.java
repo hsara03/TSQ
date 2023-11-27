@@ -28,6 +28,7 @@ public class Word {
         if(time>0){
             this.timer.schedule(this.task, time);
         }
+
     }
 
     public long getStart(){

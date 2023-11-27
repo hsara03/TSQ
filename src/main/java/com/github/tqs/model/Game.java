@@ -7,10 +7,7 @@ import com.github.tqs.exceptions.word.AlreadySpelledException;
 import com.github.tqs.exceptions.word.InvalidNextCharException;
 import com.github.tqs.exceptions.word.RanOutOfTimeException;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
@@ -42,7 +39,7 @@ public class Game {
         this.word = null;
         this.targetWords= new ArrayList<>();
         this.playing = false;
-        this.provider=new WordProvider(minimumWords);
+        this.provider=new WordProvider(minimumWords, new BufferedReader(new FileReader("src/main/resources/words.txt")));
         this.provider.readWordFile(path);
         switch (difficulty) {
             case NORMAL:
@@ -137,6 +134,9 @@ public class Game {
 
     public int getScore() {
         return this.highscore.getLastScore();
+    }
+    protected int getScoreMultiplier() {
+        return this.scoreMultiplier;
     }
     public boolean isPlaying() {
         return playing;

@@ -4,52 +4,48 @@ import com.github.tqs.exceptions.provider.NotEnoughWordsException;
 import com.github.tqs.exceptions.provider.UnableToReadWordsException;
 import com.github.tqs.model.Word;
 import com.github.tqs.model.WordProvider;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach; // JUnit 5 BeforeEach import
+import org.junit.jupiter.api.Test; // JUnit 5 Test import
 import org.mockito.Mockito;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.TimerTask;
 
-import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
+import static org.junit.jupiter.api.Assertions.*; // JUnit 5 Assertions import
 import static org.mockito.Mockito.*;
+
+
 
 public class WordProviderTest {
 
     private WordProvider invalidProvider;
     private WordProvider provider;
-    private WordProvider mockProvider;
+    private BufferedReader mockedReader;
 
-    @Before
-    public void setUp() {
-        invalidProvider = new WordProvider(5);
-        provider = new WordProvider(5);
-        mockProvider = Mockito.mock(WordProvider.class);
+
+
+    // Setup method to initialize common resources before each test
+    @BeforeEach
+    public void setUp() throws IOException {
+        mockedReader = mock(BufferedReader.class);
+        when(mockedReader.readLine()).thenReturn("test", (String) null);
+        provider = new WordProvider(10, mockedReader);
+        invalidProvider = new WordProvider(5, mockedReader);
     }
 
+    // Test case to check if getNextWord() returns a non-null Word with content "test"
     @Test
-    public void testMockNextWord() throws IOException {
-        TimerTask mockTimerTask = Mockito.mock(TimerTask.class);
-
-        when(mockProvider.getNextWord(anyInt(), any(TimerTask.class)))
-                .thenReturn(new Word("test", 0.5f, 1000, mockTimerTask));
-
-        Word result = mockProvider.getNextWord(10, mockTimerTask);
-
-        verify(mockProvider).getNextWord(anyInt(), any(TimerTask.class));
-        assertNotNull(result);
-        assertEquals("test", result.getContent());
+    public void testGetNextWord() throws IOException {
+        Word word = provider.getNextWord();
+        assertNotNull(word);
+        assertEquals("test", word.getContent());
     }
-
-
-
-
 
     /**
      * tries to initialize with a valid word list file
      */
+
+    // Test case to check if reading a valid word list file doesn't throw an exception
     @Test
     public void testValidFile() {
         Exception result = null;
@@ -62,6 +58,7 @@ public class WordProviderTest {
         assertNull(result);
     }
 
+    // Test case to check if reading multiple words from a valid file doesn't throw an exception
     @Test
     public void testNextWords() {
         Exception result = null;
@@ -77,41 +74,36 @@ public class WordProviderTest {
         assertNull(result);
     }
 
-    /**
-     * test invalid word list file
-     */
+
+    // Test case to check if reading an invalid word list file throws UnableToReadWordsException
     @Test
     public void testInvalidFile() {
         Exception result = null;
         try {
             this.invalidProvider.readWordFile("this file doesnt exist");
         } catch(Exception exception) {
-            // thrown, test passed
+            // Exception thrown as expected
             result = exception;
         }
         assertNotNull(result);
         assertTrue(result instanceof UnableToReadWordsException);
     }
 
-    /**
-     * tries to initialize with an empty word list
-     */
+    // Test case to check if reading an empty word list file throws NotEnoughWordsException
     @Test
     public void testEmptyWords() {
         Exception result = null;
         try {
             this.invalidProvider.readWordFile("src/main/resources/invalid/empty_word_list.txt");
         } catch(Exception exception) {
-            // thrown, test passed
+            // Exception thrown as expected
             result = exception;
         }
         assertNotNull(result);
         assertTrue(result instanceof NotEnoughWordsException);
     }
 
-    /**
-     * tries to initialize with too few words
-     */
+    // Test case to check if reading a file with too few words throws NotEnoughWordsException
     @Test
     public void testNotEnoughWords() {
         Exception result = null;
@@ -119,15 +111,15 @@ public class WordProviderTest {
             this.invalidProvider.readWordFile("src/main/resources/invalid/not_enough_words.txt");
         } catch(Exception exception) {
             result = exception;
-            // thrown, test passed
+            // Exception thrown as expected
+
         }
         assertNotNull(result);
         assertTrue(result instanceof NotEnoughWordsException);
     }
 
-    /**
-     * tries to initialize with a good amount of words, but with not a minimum amount of valid words
-     */
+
+    // Test case to check if reading a file with not enough valid words throws NotEnoughWordsException
     @Test
     public void testNotEnoughValidWords() {
         Exception result = null;

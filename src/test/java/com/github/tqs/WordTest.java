@@ -10,6 +10,8 @@ import com.github.tqs.model.WordProvider;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.TimerTask;
 
@@ -21,7 +23,7 @@ public class WordTest {
 
     @Before
     public void setUp() throws NotEnoughWordsException, UnableToReadWordsException, java.io.IOException {
-        provider = new WordProvider(5);
+        provider = new WordProvider(5, new BufferedReader(new FileReader("src/main/resources/words.mini.txt")));
         provider.readWordFile("src/main/resources/words.mini.txt");
     }
 
