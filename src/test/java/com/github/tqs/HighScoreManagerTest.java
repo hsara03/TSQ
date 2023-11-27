@@ -17,6 +17,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class HighScoreManagerTest {
 
+    HighScoreManager manager;
+
     private File getHighscoreFile(){
         return new File("./highscore.txt");
     }
@@ -55,6 +57,7 @@ public class HighScoreManagerTest {
     @BeforeEach
     public void setUp() throws IOException {
         deleteHighscoreFile();
+        manager = HighScoreManager.getInstance();
     }
 
     // Test: Create method, checks if the highscore file is created
@@ -63,7 +66,7 @@ public class HighScoreManagerTest {
         deleteHighscoreFile();
         Exception result = null;
         try {
-            HighScoreManager.getInstance().readHighscore();
+            manager.readHighscore();
         } catch (IOException exception){
             result=exception;
         }
@@ -78,7 +81,7 @@ public class HighScoreManagerTest {
         invalidData.add("prueba");
         createFileWithData(invalidData);
         assertEquals(1, getNumberOfLines());
-        HighScoreManager.getInstance().readHighscore();
+        manager.readHighscore();
         assertEquals(0, getNumberOfLines());
     }
 
@@ -89,7 +92,7 @@ public class HighScoreManagerTest {
         invalidData.add("prueba invalid_number");
         createFileWithData(invalidData);
         assertEquals(1, getNumberOfLines());
-        HighScoreManager.getInstance().readHighscore();
+        manager.readHighscore();
         assertEquals(0, getNumberOfLines());
     }
 
@@ -97,7 +100,6 @@ public class HighScoreManagerTest {
     @Test
     public void testScoreReadWrite() throws IOException, InvalidNameException {
         deleteHighscoreFile();
-        HighScoreManager manager = HighScoreManager.getInstance();
         manager.readHighscore();
         manager.setPlayerName("test1");
         manager.setHighscore(50);
@@ -116,7 +118,7 @@ public class HighScoreManagerTest {
     public void testInvalidPlayerName() {
         Exception result = null;
         try {
-            HighScoreManager.getInstance().setPlayerName("hola hola hola");
+            manager.setPlayerName("hola hola hola");
         } catch (Exception exception){
             result=exception;
         }
@@ -129,8 +131,8 @@ public class HighScoreManagerTest {
     public void testValidPlayerName() {
         Exception result = null;
         try {
-            HighScoreManager.getInstance().setPlayerName("hola");
-        } catch (InvalidNameException | IOException exception){
+            manager.setPlayerName("hola");
+        } catch (InvalidNameException exception){
             result=exception;
         }
         assertNull(result);
@@ -152,13 +154,12 @@ public class HighScoreManagerTest {
         invalidData.add("0 00ínválíd00");
         createFileWithData(invalidData);
         assertEquals(1, getNumberOfLines());
-        HighScoreManager.getInstance().readHighscore();
+        manager.readHighscore();
         assertEquals(0, getNumberOfLines());
     }
 
     @Test
-    public void testIncrement() throws IOException {
-        HighScoreManager manager = HighScoreManager.getInstance();
+    public void testIncrement() {
         manager.resetCurrentScore();
         manager.incrementCurrentScore(10);
         assertEquals(10, manager.getLastScore().score);

@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="fix assert" />
+    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="update tests">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/highscore.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/HighScoreManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/HighScoreManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.github.tqs.model/Word.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.github.tqs.model/Word.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.GameTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.GameTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.HighScoreManagerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.HighScoreManagerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.WordProviderTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.WordProviderTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.WordTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.github.tqs.WordTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.GameTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.GameTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.HighScoreManagerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.HighScoreManagerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.WordProviderTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.WordProviderTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.WordTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.github.tqs.WordTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/HighScoreManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/HighScoreManagerTest.class" afterDir="false" />
+    </list>
     <list id="f9e9d20d-300f-4c91-a886-f79d545802af" name="Changes by h_sar" comment="Changes by h_sar" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +88,7 @@
       <command value="mvn clean test" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in AstroType (2)">
+  <component name="RunManager" selected="JUnit.All in AstroType (4)">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.github.tqs.Main" />
       <module name="AstroType" />
@@ -94,7 +112,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in AstroType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in AstroType (3)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AstroType" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in AstroType (4)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AstroType" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
@@ -117,29 +143,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WordTest.getTimeLeft" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AstroType" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.tqs.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.github.tqs" />
-      <option name="MAIN_CLASS_NAME" value="com.github.tqs.WordTest" />
-      <option name="METHOD_NAME" value="getTimeLeft" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in AstroType (4)" />
+        <item itemvalue="JUnit.All in AstroType (3)" />
         <item itemvalue="JUnit.GameTest" />
         <item itemvalue="JUnit.All in AstroType (2)" />
         <item itemvalue="JUnit.All in AstroType (1)" />
-        <item itemvalue="JUnit.All in AstroType" />
-        <item itemvalue="JUnit.WordTest.getTimeLeft" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +175,7 @@
       <workItem from="1701081775755" duration="1195000" />
       <workItem from="1701083249259" duration="9019000" />
       <workItem from="1701121974353" duration="170000" />
-      <workItem from="1701122157819" duration="2584000" />
+      <workItem from="1701122157819" duration="3258000" />
     </task>
     <task id="LOCAL-00001" summary="fix word test">
       <option name="closed" value="true" />
@@ -263,7 +273,31 @@
       <option name="project" value="LOCAL" />
       <updated>1701124763596</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="try github actions test">
+      <option name="closed" value="true" />
+      <created>1701124964704</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701124964704</updated>
+    </task>
+    <task id="LOCAL-00014" summary="java 21">
+      <option name="closed" value="true" />
+      <created>1701125048777</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701125048777</updated>
+    </task>
+    <task id="LOCAL-00015" summary="update tests">
+      <option name="closed" value="true" />
+      <created>1701125288590</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1701125288590</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +312,10 @@
     <MESSAGE value="working test" />
     <MESSAGE value="final" />
     <MESSAGE value="fix assert" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix assert" />
+    <MESSAGE value="try github actions test" />
+    <MESSAGE value="java 21" />
+    <MESSAGE value="update tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="update tests" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TSQ$All_in_AstroType__4_.ic" NAME="All in AstroType (4) Coverage Results" MODIFIED="1701121099601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.github.tqs.HighScoreManagerTest" time="0.164" tests="9" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.github.tqs.HighScoreManagerTest" time="0.014" tests="9" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\quique\Downloads\TSQ\target\test-classes;C:\Users\quique\Downloads\TSQ\target\classes;C:\Users\quique\.m2\repository\org\mockito\mockito-core\5.6.0\mockito-core-5.6.0.jar;C:\Users\quique\.m2\repository\net\bytebuddy\byte-buddy\1.14.8\byte-buddy-1.14.8.jar;C:\Users\quique\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.8\byte-buddy-agent-1.14.8.jar;C:\Users\quique\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\quique\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.1\junit-jupiter-5.10.1.jar;C:\Users\quique\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\quique\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\quique\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\quique\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\quique\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\quique\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\quique\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;"/>
+    <property name="java.class.path" value="C:\Users\quique\Downloads\TSQ\target\test-classes;C:\Users\quique\Downloads\TSQ\target\classes;C:\Users\quique\.m2\repository\org\mockito\mockito-core\5.6.0\mockito-core-5.6.0.jar;C:\Users\quique\.m2\repository\net\bytebuddy\byte-buddy\1.14.8\byte-buddy-1.14.8.jar;C:\Users\quique\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.8\byte-buddy-agent-1.14.8.jar;C:\Users\quique\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\quique\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.5.1\junit-jupiter-api-5.5.1.jar;C:\Users\quique\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\quique\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\quique\.m2\repository\org\junit\platform\junit-platform-commons\1.7.2\junit-platform-commons-1.7.2.jar;C:\Users\quique\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.5.1\junit-jupiter-engine-5.5.1.jar;C:\Users\quique\.m2\repository\org\junit\platform\junit-platform-engine\1.7.2\junit-platform-engine-1.7.2.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,9 +15,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="C:\Users\quique\.jdks\openjdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\quique\AppData\Local\Temp\surefire18027613301510059928\surefirebooter-20231127225043946_3.jar C:\Users\quique\AppData\Local\Temp\surefire18027613301510059928 2023-11-27T22-50-43_835-jvmRun1 surefire-20231127225043946_1tmp surefire_0-20231127225043946_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\quique\AppData\Local\Temp\surefire11335652227676203601\surefirebooter18107821426118190977.jar C:\Users\quique\AppData\Local\Temp\surefire11335652227676203601 2023-11-27T23-52-40_612-jvmRun1 surefire11047119582088027559tmp surefire_07925363683754350683tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\quique\Downloads\TSQ\target\test-classes;C:\Users\quique\Downloads\TSQ\target\classes;C:\Users\quique\.m2\repository\org\mockito\mockito-core\5.6.0\mockito-core-5.6.0.jar;C:\Users\quique\.m2\repository\net\bytebuddy\byte-buddy\1.14.8\byte-buddy-1.14.8.jar;C:\Users\quique\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.8\byte-buddy-agent-1.14.8.jar;C:\Users\quique\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\quique\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.1\junit-jupiter-5.10.1.jar;C:\Users\quique\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\quique\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\quique\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\quique\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\quique\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\quique\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\quique\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\quique\Downloads\TSQ\target\test-classes;C:\Users\quique\Downloads\TSQ\target\classes;C:\Users\quique\.m2\repository\org\mockito\mockito-core\5.6.0\mockito-core-5.6.0.jar;C:\Users\quique\.m2\repository\net\bytebuddy\byte-buddy\1.14.8\byte-buddy-1.14.8.jar;C:\Users\quique\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.8\byte-buddy-agent-1.14.8.jar;C:\Users\quique\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\quique\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.5.1\junit-jupiter-api-5.5.1.jar;C:\Users\quique\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\quique\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\quique\.m2\repository\org\junit\platform\junit-platform-commons\1.7.2\junit-platform-commons-1.7.2.jar;C:\Users\quique\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.5.1\junit-jupiter-engine-5.5.1.jar;C:\Users\quique\.m2\repository\org\junit\platform\junit-platform-engine\1.7.2\junit-platform-engine-1.7.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\quique"/>
     <property name="user.language" value="es"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\quique\AppData\Local\Temp\surefire18027613301510059928\surefirebooter-20231127225043946_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\quique\AppData\Local\Temp\surefire11335652227676203601\surefirebooter18107821426118190977.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21+35-2513"/>
@@ -59,13 +59,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testScoreReadWrite" classname="com.github.tqs.HighScoreManagerTest" time="0.045"/>
-  <testcase name="testIncrement" classname="com.github.tqs.HighScoreManagerTest" time="0.006"/>
-  <testcase name="testValidPlayerName" classname="com.github.tqs.HighScoreManagerTest" time="0.004"/>
-  <testcase name="testInvalidStoredUsername" classname="com.github.tqs.HighScoreManagerTest" time="0.027"/>
-  <testcase name="testDataValue" classname="com.github.tqs.HighScoreManagerTest" time="0.005"/>
-  <testcase name="testInvalidDataPoints" classname="com.github.tqs.HighScoreManagerTest" time="0.009"/>
-  <testcase name="testInvalidNumbers" classname="com.github.tqs.HighScoreManagerTest" time="0.021"/>
-  <testcase name="testCreate" classname="com.github.tqs.HighScoreManagerTest" time="0.007"/>
-  <testcase name="testInvalidPlayerName" classname="com.github.tqs.HighScoreManagerTest" time="0.005"/>
+  <testcase name="testScoreReadWrite" classname="com.github.tqs.HighScoreManagerTest" time="0"/>
+  <testcase name="testIncrement" classname="com.github.tqs.HighScoreManagerTest" time="0"/>
+  <testcase name="testValidPlayerName" classname="com.github.tqs.HighScoreManagerTest" time="0"/>
+  <testcase name="testInvalidStoredUsername" classname="com.github.tqs.HighScoreManagerTest" time="0.004"/>
+  <testcase name="testDataValue" classname="com.github.tqs.HighScoreManagerTest" time="0.001"/>
+  <testcase name="testInvalidDataPoints" classname="com.github.tqs.HighScoreManagerTest" time="0.003"/>
+  <testcase name="testInvalidNumbers" classname="com.github.tqs.HighScoreManagerTest" time="0.003"/>
+  <testcase name="testCreate" classname="com.github.tqs.HighScoreManagerTest" time="0.001"/>
+  <testcase name="testInvalidPlayerName" classname="com.github.tqs.HighScoreManagerTest" time="0.001"/>
 </testsuite>
