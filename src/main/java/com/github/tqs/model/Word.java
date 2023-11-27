@@ -80,7 +80,7 @@ public class Word {
     }
 
     /**
-     * Retunrs the percentage of time that has passed
+     * Returns the percentage of time that has passed
      * 0% if all time is still left, 100% if the time has gone by.
      * @return The percentage of time passed
      */

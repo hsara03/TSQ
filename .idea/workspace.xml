@@ -4,79 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="mock test">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Score.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/exceptions/score/ScoreDataInvalid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/ErrorWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/ScoreWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/WindowListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/exceptions/InputCancelledException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/HighScoreManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_11_2023_21_42__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_11_2023_21_42__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_10_2023_9_37__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_10_2023_9_37__Changes_.xml" afterDir="false" />
+    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="working test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/highscore.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/controller/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/HighScoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/HighScoreManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/WindowListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/highscore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscore.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Word.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/WordProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/WordProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/SetupWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/SetupWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/invalid/no_enough_valid_words.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/invalid/no_enough_valid_words.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/exceptions/game/NoTargetWordException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/exceptions/provider/NoWordsException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/exceptions/provider/NotEnoughWordsException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/exceptions/provider/UnableToReadWordsException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/exceptions/word/AlreadySpelledException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/exceptions/word/InvalidNextCharException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/exceptions/word/InvalidWordException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/exceptions/word/RanOutOfTimeException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/HighScoreManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/model/HighScoreManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/WindowListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Word.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/model/Word.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/model/WordProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/model/WordProvider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/view/GameWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/view/GameWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/view/GameWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/view/GameWindow$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/view/GameWindow$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/view/GameWindow$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/view/GameWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/view/GameWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/tqs/view/SetupWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/tqs/view/SetupWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/invalid/no_enough_valid_words.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/invalid/no_enough_valid_words.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/GameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/GameTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordProviderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordProviderTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/github/tqs/WordTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flow.plantuml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flow.plantuml" beforeDir="false" />
     </list>
-    <list id="f9e9d20d-300f-4c91-a886-f79d545802af" name="Changes by h_sar" comment="Changes by h_sar">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/exceptions/score/InvalidNameException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/game/NoTargetWordException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/exceptions/game/NoTargetWordException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/provider/NoWordsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/exceptions/provider/NoWordsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/provider/NotEnoughWordsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/exceptions/provider/NotEnoughWordsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/provider/UnableToReadWordsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/exceptions/provider/UnableToReadWordsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/word/AlreadySpelledException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/exceptions/word/AlreadySpelledException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/word/InvalidNextCharException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/exceptions/word/InvalidNextCharException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/word/InvalidWordException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/exceptions/word/InvalidWordException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/exceptions/word/RanOutOfTimeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/exceptions/word/RanOutOfTimeException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/HighScoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/HighScoreManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Word.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/WordProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/WordProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/tqs/WordTest.java" afterDir="false" />
-    </list>
+    <list id="f9e9d20d-300f-4c91-a886-f79d545802af" name="Changes by h_sar" comment="Changes by h_sar" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,152 +32,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/github/tqs/Main.java">
-      <ranges>
-        <range start1="2" end1="5" start2="2" end2="9" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="15" end1="17" start2="19" end2="32" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="18" end1="20" start2="33" end2="37" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="21" end1="30" start2="38" end2="53" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="33" end1="34" start2="56" end2="57" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="36" end1="36" start2="59" end2="60" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="37" end1="39" start2="61" end2="64" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/test/java/com/github/tqs/GameTest.java">
-      <ranges>
-        <range start1="2" end1="6" start2="2" end2="6" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="7" end1="8" start2="7" end2="8" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="10" end1="10" start2="10" end2="11" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="11" end1="12" start2="12" end2="12" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="14" end1="15" start2="14" end2="16" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="16" end1="17" start2="17" end2="20" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="22" end1="23" start2="25" end2="26" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="32" end1="34" start2="35" end2="37" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="37" end1="40" start2="40" end2="43" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="44" end1="44" start2="47" end2="48" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="53" end1="54" start2="57" end2="58" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="55" end1="57" start2="59" end2="61" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="60" end1="62" start2="64" end2="66" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="70" end1="71" start2="74" end2="75" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="72" end1="74" start2="76" end2="78" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="76" end1="76" start2="80" end2="113" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="77" end1="77" start2="114" end2="188" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/com/github/tqs/model/HighScoreManager.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="5" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="10" end1="11" start2="13" end2="14" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="13" end1="15" start2="16" end2="18" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="18" end1="22" start2="21" end2="26" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="24" end1="25" start2="28" end2="31" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="27" end1="27" start2="33" end2="54" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="28" end1="29" start2="55" end2="56" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="31" end1="31" start2="58" end2="59" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="32" end1="33" start2="60" end2="61" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="36" end1="37" start2="64" end2="66" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="38" end1="39" start2="67" end2="68" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="42" end1="42" start2="71" end2="72" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="49" end1="50" start2="79" end2="83" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="51" end1="52" start2="84" end2="87" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="54" end1="55" start2="89" end2="90" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="58" end1="69" start2="93" end2="135" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java">
-      <ranges>
-        <range start1="2" end1="4" start2="2" end2="5" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="8" end1="9" start2="9" end2="9" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="29" end1="29" start2="29" end2="30" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="31" end1="31" start2="32" end2="34" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="43" end1="46" start2="46" end2="46" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="91" end1="92" start2="91" end2="92" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="102" end1="103" start2="102" end2="103" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/com/github/tqs/model/WordProvider.java">
-      <ranges>
-        <range start1="2" end1="5" start2="2" end2="6" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="31" end1="32" start2="32" end2="34" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="48" end1="48" start2="50" end2="51" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="54" end1="54" start2="57" end2="58" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="58" end1="58" start2="62" end2="63" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="67" end1="67" start2="72" end2="73" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/test/java/com/github/tqs/WordTest.java">
-      <ranges>
-        <range start1="2" end1="7" start2="2" end2="8" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="9" end1="11" start2="10" end2="12" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="17" end1="18" start2="18" end2="20" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="23" end1="25" start2="25" end2="28" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="30" end1="31" start2="33" end2="34" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="34" end1="34" start2="37" end2="38" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="41" end1="42" start2="45" end2="46" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="45" end1="45" start2="49" end2="50" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="51" end1="52" start2="56" end2="57" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="58" end1="59" start2="63" end2="64" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="62" end1="62" start2="67" end2="68" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="67" end1="68" start2="73" end2="74" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="73" end1="74" start2="79" end2="80" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="81" end1="82" start2="87" end2="88" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="85" end1="85" start2="91" end2="92" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="88" end1="89" start2="95" end2="96" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="92" end1="93" start2="99" end2="100" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="99" end1="100" start2="106" end2="107" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="105" end1="105" start2="112" end2="115" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="107" end1="107" start2="117" end2="118" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="115" end1="115" start2="126" end2="129" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="117" end1="117" start2="131" end2="132" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="126" end1="127" start2="141" end2="142" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="132" end1="132" start2="147" end2="180" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Word.java">
-      <ranges>
-        <range start1="2" end1="5" start2="2" end2="5" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="46" end1="46" start2="46" end2="47" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="47" end1="47" start2="48" end2="49" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="48" end1="48" start2="50" end2="52" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="50" end1="50" start2="54" end2="56" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="51" end1="51" start2="57" end2="59" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="52" end1="52" start2="60" end2="62" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="53" end1="53" start2="63" end2="64" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="65" end1="65" start2="76" end2="77" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="70" end1="72" start2="82" end2="85" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/com/github/tqs/view/GameWindow.java">
-      <ranges>
-        <range start1="2" end1="6" start2="2" end2="8" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="18" end1="20" start2="20" end2="20" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="24" end1="24" start2="24" end2="26" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="26" end1="26" start2="28" end2="30" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="28" end1="28" start2="32" end2="33" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="29" end1="29" start2="34" end2="36" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="31" end1="31" start2="38" end2="40" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="35" end1="35" start2="44" end2="46" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="41" end1="42" start2="52" end2="53" changelist="b8ee7f7a-590d-457e-b485-c6ff6dba8605" />
-        <range start1="45" end1="45" start2="56" end2="58" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="49" end1="49" start2="62" end2="64" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="53" end1="53" start2="68" end2="69" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="56" end1="56" start2="72" end2="73" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="61" end1="61" start2="78" end2="79" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="63" end1="63" start2="81" end2="82" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="81" end1="81" start2="100" end2="102" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="84" end1="84" start2="105" end2="106" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="93" end1="94" start2="115" end2="116" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="103" end1="104" start2="125" end2="126" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="108" end1="108" start2="130" end2="131" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="115" end1="115" start2="138" end2="139" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="117" end1="118" start2="141" end2="141" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="122" end1="122" start2="145" end2="146" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="125" end1="125" start2="149" end2="151" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-        <range start1="137" end1="138" start2="163" end2="164" changelist="f9e9d20d-300f-4c91-a886-f79d545802af" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -252,23 +41,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/quique/Downloads/TSQ/src/main/resources/sounds&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/quique/Desktop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\quique\Downloads\TSQ\src\main\resources\sounds" />
@@ -287,7 +76,7 @@
       <command value="mvn clean test" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager" selected="JUnit.All in AstroType (2)">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.github.tqs.Main" />
       <module name="AstroType" />
@@ -303,15 +92,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in AstroType (3)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AstroType" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in AstroType (4)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in AstroType (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AstroType" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
@@ -323,6 +104,21 @@
       <module name="AstroType" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AstroType" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.tqs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.tqs" />
+      <option name="MAIN_CLASS_NAME" value="com.github.tqs.GameTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -345,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GameTest" />
+        <item itemvalue="JUnit.All in AstroType (2)" />
         <item itemvalue="JUnit.All in AstroType (1)" />
         <item itemvalue="JUnit.All in AstroType" />
         <item itemvalue="JUnit.WordTest.getTimeLeft" />
-        <item itemvalue="JUnit.All in AstroType (4)" />
-        <item itemvalue="JUnit.All in AstroType (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -374,6 +170,8 @@
       <workItem from="1701026717779" duration="4417000" />
       <workItem from="1701081775755" duration="1195000" />
       <workItem from="1701083249259" duration="9019000" />
+      <workItem from="1701121974353" duration="170000" />
+      <workItem from="1701122157819" duration="1924000" />
     </task>
     <task id="LOCAL-00001" summary="fix word test">
       <option name="closed" value="true" />
@@ -431,7 +229,31 @@
       <option name="project" value="LOCAL" />
       <updated>1701096842093</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="working test">
+      <option name="closed" value="true" />
+      <created>1701122018400</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701122018400</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Changes by h_sar">
+      <option name="closed" value="true" />
+      <created>1701122026396</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701122026396</updated>
+    </task>
+    <task id="LOCAL-00010" summary="working test">
+      <option name="closed" value="true" />
+      <created>1701122035570</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701122035570</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,20 +263,10 @@
     <MESSAGE value="fix word test" />
     <MESSAGE value="fixed tests, moved to use mvc" />
     <MESSAGE value="score shown" />
-    <MESSAGE value="Changes by h_sar" />
     <MESSAGE value="mock test" />
-    <option name="LAST_COMMIT_MESSAGE" value="mock test" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/github/tqs/WordProviderTest.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Changes by h_sar" />
+    <MESSAGE value="working test" />
+    <option name="LAST_COMMIT_MESSAGE" value="working test" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TSQ$All_in_AstroType__4_.ic" NAME="All in AstroType (4) Coverage Results" MODIFIED="1701121099601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
