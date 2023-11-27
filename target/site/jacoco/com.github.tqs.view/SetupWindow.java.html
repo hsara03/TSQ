@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SetupWindow.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AstroType</a> &gt; <a href="index.source.html" class="el_package">com.github.tqs.view</a> &gt; <span class="el_source">SetupWindow.java</span></div><h1>SetupWindow.java</h1><pre class="source lang-java linenums">package com.github.tqs.view;
+
+import com.github.tqs.model.exceptions.score.InvalidNameException;
+import com.github.tqs.view.exceptions.InputCancelledException;
+import com.github.tqs.model.Difficulty;
+import com.github.tqs.model.HighScoreManager;
+import com.github.tqs.model.Score;
+
+import javax.swing.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class SetupWindow {
+
+    // score will be -1 if no game was played, this is NOT the highscore, this is the SCORE OF THE LAST GAME
+    // can be used to retrieve the TRUE HIGHSCORE
+    private HighScoreManager highScoreManager;
+
+<span class="nc" id="L22">    public SetupWindow() throws IOException {</span>
+<span class="nc" id="L23">        this.highScoreManager=HighScoreManager.getInstance();</span>
+<span class="nc" id="L24">    }</span>
+
+    // Shows the setup window, skipping the username input is possible
+    public Difficulty showSkippingUsername() throws IOException, InputCancelledException {
+        try {
+<span class="nc" id="L29">            return this.pickDifficulty();</span>
+<span class="nc" id="L30">        } catch (InputCancelledException exception){</span>
+<span class="nc" id="L31">            return this.show();</span>
+        }
+    }
+
+    // Shows the full setup window, including username input
+    public Difficulty show() throws IOException, InputCancelledException {
+<span class="nc" id="L37">        this.pickUsername();</span>
+        try {
+<span class="nc" id="L39">            return this.pickDifficulty();</span>
+<span class="nc" id="L40">        } catch (InputCancelledException exception){</span>
+<span class="nc" id="L41">            return this.show();</span>
+        }
+    }
+
+    // Prompts the user to pick a difficulty level
+    private Difficulty pickDifficulty() throws IOException, InputCancelledException {
+<span class="nc" id="L47">        Score highScore= highScoreManager.readHighscore();</span>
+<span class="nc" id="L48">        Score score = highScoreManager.getLastScore();</span>
+<span class="nc" id="L49">        List&lt;String&gt; messages = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        if(highScore.hasData()) messages.add(&quot;La puntuación más alta es de &quot; + highScore.name + &quot;: &quot; + highScore.score);</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        if(score.hasData()) messages.add(&quot;La puntuación de la última partida de &quot; + score.name + &quot; fue &quot; + score.score);</span>
+<span class="nc" id="L52">        messages.add(&quot;Selecciona la dificultad del juego:&quot;);</span>
+<span class="nc" id="L53">        Map&lt;String, Difficulty&gt; options = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L54">        options.put(&quot;Fácil&quot;, Difficulty.EASY);</span>
+<span class="nc" id="L55">        options.put(&quot;Mediano&quot;, Difficulty.NORMAL);</span>
+<span class="nc" id="L56">        options.put(&quot;Difícil&quot;, Difficulty.HARD);</span>
+<span class="nc" id="L57">        String difficulty = (String) JOptionPane.showInputDialog(null,</span>
+<span class="nc" id="L58">                String.join(&quot;\n&quot;, messages),</span>
+                &quot;Dificultad&quot;,
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+<span class="nc" id="L62">                options.keySet().toArray(),</span>
+                &quot;Mediano&quot;);
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (difficulty==null) {</span>
+<span class="nc" id="L65">            throw new InputCancelledException();</span>
+        }
+<span class="nc" id="L67">        return options.get(difficulty);</span>
+    }
+
+    // Prompts the user to input username
+    private void pickUsername() throws InputCancelledException, IOException {
+<span class="nc" id="L72">        highScoreManager.readHighscore();</span>
+        try {
+<span class="nc" id="L74">            String name = null;</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">            if(highScoreManager.getLastScore().hasData()){</span>
+<span class="nc" id="L76">                name=highScoreManager.getLastScore().name;</span>
+            }
+<span class="nc" id="L78">            System.out.println(&quot;last name &quot; + name);</span>
+<span class="nc" id="L79">            String playerName = JOptionPane.showInputDialog(null, &quot;Ingrese su nombre de jugador:&quot;, name);</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">            if(playerName==null) throw new InputCancelledException();</span>
+<span class="nc" id="L81">            highScoreManager.setPlayerName(playerName);</span>
+<span class="nc" id="L82">        } catch (InvalidNameException exception){</span>
+<span class="nc" id="L83">            JOptionPane.showMessageDialog(null,&quot;El nombre del jugador no es válido, debe tener de 1-16 carácteres alfanumericos, sin carácteres especiales&quot;);</span>
+<span class="nc" id="L84">            this.pickUsername();</span>
+<span class="nc" id="L85">        }</span>
+<span class="nc" id="L86">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

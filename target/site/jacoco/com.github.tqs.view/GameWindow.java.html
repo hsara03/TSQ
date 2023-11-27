@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameWindow.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AstroType</a> &gt; <a href="index.source.html" class="el_package">com.github.tqs.view</a> &gt; <span class="el_source">GameWindow.java</span></div><h1>GameWindow.java</h1><pre class="source lang-java linenums">package com.github.tqs.view;
+
+import com.github.tqs.controller.Game;
+import com.github.tqs.model.exceptions.game.NoTargetWordException;
+import com.github.tqs.model.exceptions.provider.NoWordsException;
+import com.github.tqs.model.exceptions.provider.NotEnoughWordsException;
+import com.github.tqs.model.exceptions.provider.UnableToReadWordsException;
+import com.github.tqs.model.exceptions.word.InvalidNextCharException;
+import com.github.tqs.model.*;
+
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
+import java.util.Timer;
+
+public class GameWindow extends Observable implements GameListener {
+
+    private Game game;
+
+    // Dimensions of the game window
+<span class="nc" id="L27">    private final int height = 600;</span>
+<span class="nc" id="L28">    private final int width = 900;</span>
+
+    // Padding values for layout
+<span class="nc" id="L31">    private final int xPadding = 120;</span>
+<span class="nc" id="L32">    private final int yBottomPadding = 50;</span>
+
+    private final JFrame frame;
+
+    // Custom fonts for the game interface
+    private final Font customFont;
+    private final Font customFontBold;
+
+    // Sound files for game events
+<span class="nc" id="L41">    private final File ding = new File(&quot;src/main/resources/sounds/ding.wav&quot;);</span>
+<span class="nc" id="L42">    private final File negative = new File(&quot;src/main/resources/sounds/negative.wav&quot;);</span>
+<span class="nc" id="L43">    private final File wrong = new File(&quot;src/main/resources/sounds/wrong.wav&quot;);</span>
+<span class="nc" id="L44">    private final File type = new File(&quot;src/main/resources/sounds/type.wav&quot;);</span>
+
+    // Runnable to be executed at the end of the game
+    private final Runnable endMethod;
+
+    public Game getGame() {
+<span class="nc" id="L50">        return game;</span>
+    }
+
+<span class="nc" id="L53">    public GameWindow(Difficulty difficulty, Runnable endMethod) throws IOException, NotEnoughWordsException, UnableToReadWordsException, FontFormatException, NoWordsException {</span>
+<span class="nc" id="L54">        this.endMethod=endMethod;</span>
+<span class="nc" id="L55">        this.game=new Game(&quot;src/main/resources/words.txt&quot;, 10, difficulty);</span>
+<span class="nc" id="L56">        this.game.addListener(this);</span>
+
+        // JFrame setup
+<span class="nc" id="L59">        this.frame = new JFrame(&quot;Words&quot;);</span>
+<span class="nc" id="L60">        this.frame.setSize(width, height);</span>
+<span class="nc" id="L61">        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L62">        this.frame.setResizable(false);</span>
+
+        // Load custom fonts
+<span class="nc" id="L65">        this.customFont = Font.createFont(Font.TRUETYPE_FONT, new File(&quot;src/main/resources/Changa-SemiBold.ttf&quot;));</span>
+<span class="nc" id="L66">        this.customFontBold = customFont.deriveFont(Font.BOLD, 16);</span>
+<span class="nc" id="L67">    }</span>
+
+    // Start the game
+    public void startPlaying() throws IOException, FontFormatException {
+<span class="nc" id="L71">        game.startGame();</span>
+
+        // JPanel for game rendering
+<span class="nc" id="L74">        JPanel panel = new JPanel() {</span>
+            @Override
+            protected void paintComponent(Graphics g) {
+<span class="nc" id="L77">                super.paintComponent(g);</span>
+
+                // Set font for rendering
+<span class="nc" id="L80">                g.setFont(customFontBold);</span>
+
+                // Render each target word in the game
+<span class="nc bnc" id="L83" title="All 2 branches missed.">                for (Word word : game.getTargetWords()) {</span>
+<span class="nc" id="L84">                    String targetContent = word.getContent();</span>
+<span class="nc" id="L85">                    String typedContent = word.getTyped();</span>
+<span class="nc" id="L86">                    FontMetrics fm = g.getFontMetrics();</span>
+<span class="nc" id="L87">                    int startX = xPadding + (int) ((width - xPadding * 2) * word.getX());</span>
+<span class="nc" id="L88">                    int startY = (int) (word.timePercent() * (height - yBottomPadding));</span>
+
+<span class="nc bnc" id="L90" title="All 2 branches missed.">                    for (int i = 0; i &lt; targetContent.length(); i++) {</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">                        if (i &lt; typedContent.length()) {</span>
+<span class="nc" id="L92">                            g.setColor(Color.GREEN);</span>
+                        } else {
+<span class="nc" id="L94">                            g.setColor(Color.RED);</span>
+                        }
+<span class="nc" id="L96">                        String charAsString = Character.toString(targetContent.charAt(i));</span>
+<span class="nc" id="L97">                        g.drawString(charAsString, startX, startY);</span>
+<span class="nc" id="L98">                        startX += fm.stringWidth(charAsString);</span>
+                    }
+<span class="nc" id="L100">                }</span>
+
+                // Draw the current score
+<span class="nc" id="L103">                drawScore(g);</span>
+<span class="nc" id="L104">            }</span>
+
+            // Draw the current score on the game panel
+            private void drawScore(Graphics g) {
+<span class="nc" id="L108">                String scoreText = &quot;Puntuación:  &quot; + game.getScore();</span>
+<span class="nc" id="L109">                g.setColor(Color.BLACK);</span>
+<span class="nc" id="L110">                g.drawString(scoreText, width-200, 30);</span>
+<span class="nc" id="L111">            }</span>
+
+        };
+
+
+        // KeyListener to handle user input
+<span class="nc" id="L117">        panel.addKeyListener(new KeyAdapter() {</span>
+            @Override
+            public void keyTyped(KeyEvent e) {
+                try {
+<span class="nc" id="L121">                    game.handleType(e.getKeyChar());</span>
+<span class="nc" id="L122">                    panel.repaint();</span>
+<span class="nc" id="L123">                } catch (InvalidNextCharException | NoTargetWordException exception) {</span>
+<span class="nc" id="L124">                    invalidChar();</span>
+<span class="nc" id="L125">                } catch (Exception exception){</span>
+                    // Ignore other exceptions
+<span class="nc" id="L127">                }</span>
+<span class="nc" id="L128">            }</span>
+        });
+
+        // Timer to repaint the panel at a fixed interval
+<span class="nc" id="L132">        new Timer().schedule(new TimerTask() {</span>
+            @Override
+            public void run() {
+<span class="nc" id="L135">                panel.repaint();</span>
+<span class="nc" id="L136">            }</span>
+        }, 0, 1000 / 60);
+
+        // Set panel focus and make it visible
+<span class="nc" id="L140">        panel.setFocusable(true);</span>
+<span class="nc" id="L141">        panel.requestFocusInWindow();</span>
+<span class="nc" id="L142">        frame.add(panel);</span>
+<span class="nc" id="L143">        frame.setVisible(true);</span>
+<span class="nc" id="L144">    }</span>
+
+    // Method invoked when the game ends
+    @Override
+    public void gameEnded() {
+        try{
+
+            // Play negative sound, dispose of the frame, and execute the end method
+<span class="nc" id="L152">            Clip clip = AudioSystem.getClip();</span>
+<span class="nc" id="L153">            clip.open(AudioSystem.getAudioInputStream(negative));</span>
+<span class="nc" id="L154">            clip.start();</span>
+<span class="nc" id="L155">            this.frame.dispose();</span>
+<span class="nc" id="L156">            this.endMethod.run();</span>
+<span class="nc" id="L157">        } catch (Exception e){</span>
+<span class="nc" id="L158">            System.out.println(&quot;this system doesn't support audio output&quot;);</span>
+<span class="nc" id="L159">        }</span>
+<span class="nc" id="L160">    }</span>
+
+    @Override
+    public void gameStarted() {
+        //Unused method
+<span class="nc" id="L165">    }</span>
+
+    @Override
+    public void wordTyped() {
+        try{
+<span class="nc" id="L170">            Clip clip = AudioSystem.getClip();</span>
+<span class="nc" id="L171">            clip.open(AudioSystem.getAudioInputStream(ding));</span>
+<span class="nc" id="L172">            clip.start();</span>
+<span class="nc" id="L173">        } catch (Exception e){</span>
+<span class="nc" id="L174">            System.out.println(&quot;this system doesn't support audio output&quot;);</span>
+<span class="nc" id="L175">        }</span>
+<span class="nc" id="L176">    }</span>
+
+    @Override
+    public void invalidChar() {
+        try{
+<span class="nc" id="L181">            Clip clip = AudioSystem.getClip();</span>
+<span class="nc" id="L182">            clip.open(AudioSystem.getAudioInputStream(wrong));</span>
+<span class="nc" id="L183">            clip.start();</span>
+<span class="nc" id="L184">        } catch (Exception e){</span>
+<span class="nc" id="L185">            System.out.println(&quot;this system doesn't support audio output&quot;);</span>
+<span class="nc" id="L186">        }</span>
+<span class="nc" id="L187">    }</span>
+
+    @Override
+    public void charTyped() {
+        try{
+<span class="nc" id="L192">            Clip clip = AudioSystem.getClip();</span>
+<span class="nc" id="L193">            clip.open(AudioSystem.getAudioInputStream(type));</span>
+<span class="nc" id="L194">            clip.start();</span>
+<span class="nc" id="L195">        } catch (Exception e){</span>
+<span class="nc" id="L196">            System.out.println(&quot;this system doesn't support audio output&quot;);</span>
+<span class="nc" id="L197">        }</span>
+<span class="nc" id="L198">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

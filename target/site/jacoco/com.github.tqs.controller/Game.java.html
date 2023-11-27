@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Game.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AstroType</a> &gt; <a href="index.source.html" class="el_package">com.github.tqs.controller</a> &gt; <span class="el_source">Game.java</span></div><h1>Game.java</h1><pre class="source lang-java linenums">package com.github.tqs.controller;
+
+import com.github.tqs.model.exceptions.game.NoTargetWordException;
+import com.github.tqs.model.exceptions.provider.NoWordsException;
+import com.github.tqs.model.exceptions.provider.NotEnoughWordsException;
+import com.github.tqs.model.exceptions.provider.UnableToReadWordsException;
+import com.github.tqs.model.exceptions.score.InvalidNameException;
+import com.github.tqs.model.exceptions.word.AlreadySpelledException;
+import com.github.tqs.model.exceptions.word.InvalidNextCharException;
+import com.github.tqs.model.exceptions.word.RanOutOfTimeException;
+import com.github.tqs.model.*;
+
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
+
+public class Game {
+
+    private final Set&lt;GameListener&gt; listeners;
+    private WordProvider provider;
+    private final List&lt;Word&gt; targetWords;
+    private Word word;
+    private int difficulty;
+    private HighScoreManager highscore;
+    private boolean playing;
+    private int scoreMultiplier;
+
+<span class="fc" id="L28">    public Game(String path, int minimumWords, Difficulty difficulty) throws NotEnoughWordsException, UnableToReadWordsException, IOException, NoWordsException {</span>
+<span class="fc bfc" id="L29" title="All 3 branches covered.">        switch (difficulty) {</span>
+            case NORMAL:
+<span class="fc" id="L31">                this.difficulty = 10;</span>
+<span class="fc" id="L32">                break;</span>
+            case HARD:
+<span class="fc" id="L34">                this.difficulty = 20;</span>
+<span class="fc" id="L35">                break;</span>
+            default:
+<span class="fc" id="L37">                this.difficulty = 0;</span>
+                break;
+        }
+<span class="fc" id="L40">        this.listeners=new HashSet&lt;&gt;();</span>
+<span class="fc" id="L41">        this.word = null;</span>
+<span class="fc" id="L42">        this.targetWords= new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L43">        this.playing = false;</span>
+<span class="fc" id="L44">        this.provider=new WordProvider(minimumWords, new BufferedReader(new FileReader(&quot;src/main/resources/words.txt&quot;)));</span>
+<span class="fc" id="L45">        this.provider.readWordFile(path);</span>
+<span class="fc bfc" id="L46" title="All 3 branches covered.">        switch (difficulty) {</span>
+            case NORMAL:
+<span class="fc" id="L48">                this.scoreMultiplier = 2;</span>
+<span class="fc" id="L49">                break;</span>
+            case HARD:
+<span class="fc" id="L51">                this.scoreMultiplier = 3;</span>
+<span class="fc" id="L52">                break;</span>
+            default:
+<span class="fc" id="L54">                this.scoreMultiplier = 1;</span>
+                break;
+        }
+<span class="fc" id="L57">        this.highscore = HighScoreManager.getInstance();</span>
+<span class="fc" id="L58">        this.highscore.readHighscore();</span>
+<span class="fc" id="L59">        this.highscore.resetCurrentScore();</span>
+<span class="fc" id="L60">    }</span>
+
+    public void handleType(char typed) throws InvalidNextCharException, AlreadySpelledException, RanOutOfTimeException, NoTargetWordException {
+
+        // If there is no current target word, find a matching one based on the typed character
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        if(word==null){</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">            for (Word typedWord:targetWords) {</span>
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">                if(typedWord.getContent().charAt(0)==typed) {</span>
+<span class="fc" id="L68">                    word=typedWord;</span>
+<span class="fc" id="L69">                    break;</span>
+                }
+<span class="nc" id="L71">            }</span>
+        }
+
+        // If there is still no target word, throw an exception
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        if(word==null) {</span>
+<span class="fc" id="L76">            throw new NoTargetWordException();</span>
+        }
+
+        // Try to type the character into the current word.
+<span class="fc" id="L80">        word.type(typed);</span>
+
+        //If the word is completed, update the score, increase difficulty, and get a new target word.
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        if (word.isCompleted()) {</span>
+<span class="fc" id="L84">            this.highscore.incrementCurrentScore(this.scoreMultiplier);</span>
+<span class="fc" id="L85">            difficulty++;</span>
+<span class="fc" id="L86">            targetWords.remove(word);</span>
+<span class="fc" id="L87">            word = null;</span>
+
+            // Notify listeners that a word was typed.
+<span class="fc bfc" id="L90" title="All 2 branches covered.">            for (GameListener listener: listeners) {</span>
+<span class="fc" id="L91">                listener.wordTyped();</span>
+<span class="fc" id="L92">            }</span>
+
+            // Asynchronously get the next target word.
+<span class="fc" id="L95">            CompletableFuture.runAsync(() -&gt; {</span>
+                try {
+<span class="fc" id="L97">                    targetWords.add(provider.getNextWord(getHeadroom(), getEndOfTimeTask()));</span>
+<span class="nc" id="L98">                } catch (IOException e) {</span>
+<span class="nc" id="L99">                    endGame();</span>
+<span class="fc" id="L100">                }</span>
+<span class="fc" id="L101">            });</span>
+        } else {
+            // Notify listeners that a character was typed.
+<span class="fc bfc" id="L104" title="All 2 branches covered.">            for (GameListener listener: listeners) {</span>
+<span class="fc" id="L105">                listener.charTyped();</span>
+<span class="fc" id="L106">            }</span>
+        }
+<span class="fc" id="L108">    }</span>
+
+    public void addListener(GameListener listener){
+<span class="fc" id="L111">        this.listeners.add(listener);</span>
+<span class="fc" id="L112">    }</span>
+
+    public TimerTask getEndOfTimeTask() {
+<span class="fc" id="L115">        return new TimerTask() {</span>
+            @Override
+            public void run() {
+<span class="fc" id="L118">                endGame();</span>
+<span class="fc" id="L119">            }</span>
+        };
+    }
+
+    public void endGame(){
+<span class="pc bpc" id="L124" title="1 of 2 branches missed.">        if(!playing) return;</span>
+<span class="fc" id="L125">        playing=false;</span>
+        try {
+<span class="fc" id="L127">            highscore.setHighscore(highscore.getLastScore().score);</span>
+<span class="nc" id="L128">        } catch (IOException | InvalidNameException e) {</span>
+            // score won't be saved
+<span class="nc" id="L130">            highscore.resetCurrentScore();</span>
+<span class="fc" id="L131">        }</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">        for (GameListener listener: listeners){</span>
+<span class="fc" id="L133">            listener.gameEnded();</span>
+<span class="fc" id="L134">        }</span>
+<span class="fc" id="L135">    }</span>
+
+    public void startGame() throws IOException {
+<span class="fc" id="L138">        this.playing=true;</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">        for (int i = 0; i &lt; this.scoreMultiplier; i++) {</span>
+<span class="fc" id="L140">            targetWords.add(provider.getNextWord(getHeadroom(), getEndOfTimeTask()));</span>
+        }
+<span class="fc" id="L142">    }</span>
+
+    //Calculate and returns a time limit value for the player to complete a word.
+    //The time is adjusted based n the game difficulty and ensure a minimum margin.
+    private int getHeadroom(){
+<span class="fc" id="L147">        float minHeadroom = 5;</span>
+<span class="fc" id="L148">        float headroom = 30 - difficulty;</span>
+<span class="pc bpc" id="L149" title="1 of 2 branches missed.">        if(headroom&lt;minHeadroom) headroom=minHeadroom;</span>
+<span class="fc" id="L150">        return (int) headroom*1000;</span>
+    }
+
+    public List&lt;Word&gt; getTargetWords() {
+<span class="fc" id="L154">        return targetWords;</span>
+    }
+
+    // Get the current score
+    public int getScore() {
+<span class="fc" id="L159">        return this.highscore.getLastScore().score;</span>
+    }
+
+    public int getScoreMultiplier() {
+<span class="fc" id="L163">        return this.scoreMultiplier;</span>
+    }
+
+    public boolean isPlaying() {
+<span class="fc" id="L167">        return playing;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

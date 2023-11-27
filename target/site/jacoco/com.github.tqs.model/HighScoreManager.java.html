@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HighScoreManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AstroType</a> &gt; <a href="index.source.html" class="el_package">com.github.tqs.model</a> &gt; <span class="el_source">HighScoreManager.java</span></div><h1>HighScoreManager.java</h1><pre class="source lang-java linenums">package com.github.tqs.model;
+
+import com.github.tqs.model.exceptions.score.InvalidNameException;
+import com.github.tqs.model.exceptions.score.ScoreDataInvalid;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.util.Scanner;
+
+public class HighScoreManager {
+
+<span class="fc" id="L12">    private static String path = &quot;highscore.txt&quot;;</span>
+    private static HighScoreManager instance;
+    private String playerName;
+    private String filePath;
+    private File highscoreFile;
+    private Score highscore;
+    private Score lastScore;
+
+<span class="fc" id="L20">    private HighScoreManager(String filePath) throws IOException {</span>
+<span class="fc" id="L21">        this.filePath = filePath;</span>
+
+        // Create the highscore file if it doesn't exist
+<span class="fc" id="L24">        this.createFile();</span>
+
+        // Set file permissions
+<span class="fc" id="L27">        this.highscoreFile.setWritable(true);</span>
+<span class="fc" id="L28">        this.highscoreFile.setReadable(true);</span>
+
+        // Initialize lastScore with default values
+<span class="fc" id="L31">        this.lastScore=new Score(null, -1);</span>
+<span class="fc" id="L32">    }</span>
+
+    private File createFile() throws IOException {
+<span class="fc" id="L35">        this.highscoreFile=new File(this.filePath);</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        if(!Files.isRegularFile(this.highscoreFile.toPath())){</span>
+<span class="fc" id="L37">            Files.createFile(this.highscoreFile.toPath());</span>
+        }
+<span class="fc" id="L39">        return this.highscoreFile;</span>
+    }
+
+    // Set the player name for scoring, throws exception if the name is invalid
+    public void setPlayerName(String name) throws InvalidNameException {
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if(!name.matches(getPlayerNameRegex())) throw new InvalidNameException();</span>
+<span class="fc" id="L45">        this.playerName=name;</span>
+<span class="fc" id="L46">        this.lastScore=new Score(name, this.lastScore.score);</span>
+<span class="fc" id="L47">    }</span>
+
+
+    private String getPlayerNameRegex(){
+<span class="fc" id="L51">        return &quot;^[A-Za-z0-9]{1,16}+$&quot;;</span>
+    }
+
+    // Reset the current score to default values when the player start to play
+    public void resetCurrentScore(){
+<span class="fc" id="L56">        this.lastScore=new Score(this.playerName, 0);</span>
+<span class="fc" id="L57">    }</span>
+
+    // Increment the current score by a specified amount
+    public void incrementCurrentScore(int amount){
+<span class="fc" id="L61">        this.lastScore = new Score(this.playerName, this.lastScore.score + amount);</span>
+<span class="fc" id="L62">    }</span>
+
+    /**
+     * Returns the last obtained score.
+     * If no last score is present, it returns a Score object with a score of -1.
+     */
+    public Score getLastScore(){
+<span class="fc" id="L69">        return this.lastScore;</span>
+    }
+
+    // Get the singleton instance of HighScoreManager
+    public static HighScoreManager getInstance() throws IOException {
+<span class="fc bfc" id="L74" title="All 2 branches covered.">        if(HighScoreManager.instance==null){</span>
+<span class="fc" id="L75">            HighScoreManager.instance = new HighScoreManager(HighScoreManager.path);</span>
+        }
+<span class="fc" id="L77">        return HighScoreManager.instance;</span>
+    }
+
+    // Set the highscore if the provided score is higher, write to the highscore file
+    public void setHighscore(int score) throws IOException, InvalidNameException {
+<span class="fc" id="L82">        String currentName = this.playerName;</span>
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">        if(this.playerName==null) throw new InvalidNameException();</span>
+<span class="fc" id="L84">        this.readHighscore();</span>
+<span class="fc" id="L85">        this.playerName=currentName;</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        if(this.highscore.score&lt;score) this.highscore=new Score(playerName, score);</span>
+<span class="fc" id="L87">        this.lastScore=new Score(currentName, score);</span>
+<span class="fc" id="L88">        BufferedWriter writer = new BufferedWriter(new FileWriter(this.highscoreFile, true));</span>
+<span class="fc" id="L89">        PrintWriter out = new PrintWriter(writer);</span>
+<span class="fc" id="L90">        out.println(score + &quot; &quot; + this.playerName);</span>
+<span class="fc" id="L91">        writer.close();</span>
+<span class="fc" id="L92">    }</span>
+
+    // Read the highscore from the file, update highscore and lastScore
+    public Score readHighscore() throws IOException {
+<span class="fc" id="L96">        this.highscore=new Score(null, -1);</span>
+        try {
+            Scanner scoreReader;
+            try {
+<span class="fc" id="L100">                scoreReader = new Scanner(this.highscoreFile);</span>
+<span class="fc" id="L101">            } catch (FileNotFoundException fileNotFoundException){</span>
+<span class="fc" id="L102">                this.createFile();</span>
+<span class="fc" id="L103">                scoreReader = new Scanner(this.highscoreFile);</span>
+<span class="fc" id="L104">            }</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">            while (scoreReader.hasNextLine()) {</span>
+<span class="fc" id="L106">                String data = scoreReader.nextLine();</span>
+<span class="fc" id="L107">                String[] parts = data.split(&quot; &quot;);</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">                if(parts.length&lt;2) {</span>
+<span class="fc" id="L109">                    throw new ScoreDataInvalid();</span>
+                }
+<span class="fc" id="L111">                int score = 0;</span>
+                try {
+<span class="fc" id="L113">                    score = Integer.parseInt(parts[0]);</span>
+<span class="fc" id="L114">                } catch (NumberFormatException exception){</span>
+<span class="fc" id="L115">                    throw new ScoreDataInvalid();</span>
+<span class="fc" id="L116">                }</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">                if(!parts[1].matches(getPlayerNameRegex())) {</span>
+<span class="fc" id="L118">                    throw new ScoreDataInvalid();</span>
+                }
+<span class="fc" id="L120">                String name = parts[1];</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">                if(score&gt;this.highscore.score) {</span>
+<span class="fc" id="L122">                    this.highscore=new Score(name, score);</span>
+                }
+<span class="fc" id="L124">                this.lastScore = new Score(name, score);</span>
+<span class="fc" id="L125">                this.playerName = name;</span>
+<span class="fc" id="L126">            }</span>
+<span class="fc" id="L127">            scoreReader.close();</span>
+<span class="nc" id="L128">        } catch (IOException exception) {</span>
+<span class="nc" id="L129">            throw exception;</span>
+<span class="fc" id="L130">        } catch (ScoreDataInvalid exception) {</span>
+            // clear invalid highscore data
+<span class="fc" id="L132">            PrintWriter writer = new PrintWriter(highscoreFile);</span>
+<span class="fc" id="L133">            writer.print(&quot;&quot;);</span>
+<span class="fc" id="L134">            writer.close();</span>
+<span class="fc" id="L135">        }</span>
+<span class="fc" id="L136">        return this.highscore;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

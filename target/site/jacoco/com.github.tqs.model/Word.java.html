@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Word.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AstroType</a> &gt; <a href="index.source.html" class="el_package">com.github.tqs.model</a> &gt; <span class="el_source">Word.java</span></div><h1>Word.java</h1><pre class="source lang-java linenums">package com.github.tqs.model;
+
+import com.github.tqs.model.exceptions.word.AlreadySpelledException;
+import com.github.tqs.model.exceptions.word.InvalidNextCharException;
+import com.github.tqs.model.exceptions.word.RanOutOfTimeException;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class Word {
+
+    private String content;
+    private String typed;
+    private float x;
+    private int time;
+    private long start;
+    private Timer timer;
+    private TimerTask task;
+
+<span class="fc" id="L20">    public Word(String content, float x, int time, TimerTask task) {</span>
+<span class="fc" id="L21">        this.content=content;</span>
+<span class="fc" id="L22">        this.x=x;</span>
+<span class="fc" id="L23">        this.start=System.currentTimeMillis();</span>
+<span class="fc" id="L24">        this.time=time;</span>
+<span class="fc" id="L25">        this.typed=&quot;&quot;;</span>
+<span class="fc" id="L26">        this.timer=new Timer();</span>
+<span class="fc" id="L27">        this.task = task;</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if(time&gt;0){</span>
+<span class="fc" id="L29">            this.timer.schedule(this.task, time);</span>
+        }
+
+<span class="fc" id="L32">    }</span>
+
+    public long getStart(){
+<span class="fc" id="L35">        return this.start;</span>
+    }
+
+    public boolean ranOutOfTime() {
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if(this.time&lt;0) return false;</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        return start+time&lt;System.currentTimeMillis();</span>
+    }
+
+    public String getTyped(){
+<span class="fc" id="L44">        return this.typed;</span>
+    }
+
+    //Handle the typing of a character
+    public void type(char letter) throws AlreadySpelledException, InvalidNextCharException, RanOutOfTimeException {
+        // Check if the word is already completely typed
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        if(this.typed.length()&gt;=this.content.length()) throw new AlreadySpelledException();</span>
+
+        //Get the next character that should be typed
+<span class="fc" id="L53">        String nextCharString = this.content.substring(this.typed.length(),this.typed.length()+1);</span>
+<span class="fc" id="L54">        char nextChar = nextCharString.charAt(0);</span>
+
+        // Check if the typed character matches the expected next character
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        if(nextChar!=letter) throw new InvalidNextCharException();</span>
+
+        // Check if the word ran out of time
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        if(this.ranOutOfTime()) throw new RanOutOfTimeException();</span>
+
+        // Append the typed character to the already typed characters
+<span class="fc" id="L63">        this.typed+=nextChar;</span>
+
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        if(isCompleted()){</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">            if(this.task!=null){</span>
+<span class="fc" id="L67">                this.task.cancel();</span>
+<span class="fc" id="L68">                this.timer.cancel();</span>
+            }
+        }
+<span class="fc" id="L71">    }</span>
+
+    public String getContent() {
+<span class="fc" id="L74">        return this.content;</span>
+    }
+
+    // Get the X-coordinate position of the word on the screen
+    public float getX() {
+<span class="fc" id="L79">        return this.x;</span>
+    }
+
+    /**
+     * Retunrs the percentage of time that has passed
+     * 0% if all time is still left, 100% if the time has gone by.
+     * @return The percentage of time passed
+     */
+    public float timePercent(){
+<span class="fc" id="L88">        return (System.currentTimeMillis()-this.start)/(float)time;</span>
+    }
+
+    public boolean isCompleted() {
+<span class="fc" id="L92">        return content.equalsIgnoreCase(typed.toString());</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

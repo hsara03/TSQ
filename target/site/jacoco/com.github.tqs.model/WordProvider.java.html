@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WordProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AstroType</a> &gt; <a href="index.source.html" class="el_package">com.github.tqs.model</a> &gt; <span class="el_source">WordProvider.java</span></div><h1>WordProvider.java</h1><pre class="source lang-java linenums">package com.github.tqs.model;
+
+import com.github.tqs.model.exceptions.provider.NoWordsException;
+import com.github.tqs.model.exceptions.word.InvalidWordException;
+import com.github.tqs.model.exceptions.provider.NotEnoughWordsException;
+import com.github.tqs.model.exceptions.provider.UnableToReadWordsException;
+
+import java.io.*;
+import java.util.Random;
+import java.util.TimerTask;
+
+public class WordProvider {
+
+<span class="fc" id="L14">    private static Random random = new Random();</span>
+
+    private String fileName;
+    private BufferedReader bufferedReader;
+    private int lineCount;
+    private int minimumWords;
+
+<span class="fc" id="L21">    public WordProvider(int minimumWords, BufferedReader reader){</span>
+<span class="fc" id="L22">        this.minimumWords=minimumWords;</span>
+<span class="fc" id="L23">        this.lineCount=0;</span>
+<span class="fc" id="L24">        this.bufferedReader = reader;</span>
+<span class="fc" id="L25">    }</span>
+
+    private void checkWord(String word) throws InvalidWordException{
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if(!word.matches(&quot;^[a-z]{3,}+$&quot;)){</span>
+<span class="fc" id="L29">            throw new InvalidWordException();</span>
+        }
+<span class="fc" id="L31">    }</span>
+
+    // Read words from the word file, checking for validity and minimum word count
+    public void readWordFile(String filePath) throws UnableToReadWordsException, NotEnoughWordsException, NoWordsException {
+<span class="fc" id="L35">        this.fileName=filePath;</span>
+<span class="fc" id="L36">        File file = new File(filePath);</span>
+        try {
+<span class="fc" id="L38">            bufferedReader = new BufferedReader(new FileReader(file));</span>
+<span class="fc" id="L39">            int validWords = 0;</span>
+            while(true){
+<span class="fc" id="L41">                this.lineCount++;</span>
+<span class="fc" id="L42">                String word = bufferedReader.readLine();</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">                if(word==null) break;</span>
+                try {
+<span class="fc" id="L45">                    this.checkWord(word);</span>
+<span class="fc" id="L46">                    validWords++;</span>
+<span class="fc" id="L47">                } catch(InvalidWordException exception){</span>
+                    // ignore word, invalid
+<span class="fc" id="L49">                }</span>
+<span class="fc" id="L50">            }</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">            if(validWords==0) throw new NoWordsException();</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">            if(validWords&lt;minimumWords) throw new NotEnoughWordsException();</span>
+<span class="fc" id="L53">        } catch (IOException exception){</span>
+<span class="fc" id="L54">            throw new UnableToReadWordsException();</span>
+<span class="fc" id="L55">        }</span>
+<span class="fc" id="L56">    }</span>
+
+    // Get the next word from the word file
+    public Word getNextWord() throws IOException{
+<span class="fc" id="L60">        return this.getNextWord(-1, null);</span>
+    }
+
+    //Get the next word with a specified headroom and TimerTak
+    public Word getNextWord(int headroom, TimerTask task) throws IOException {
+<span class="fc" id="L65">        String word=null;</span>
+        while(true){
+<span class="fc" id="L67">            int offset = (int) (lineCount * WordProvider.random.nextFloat());</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">            if(offset&lt;1) offset=1;</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">            for (int i = 0; i &lt; offset; i++) {</span>
+<span class="fc" id="L70">                word = bufferedReader.readLine();</span>
+            }
+
+            //If the end of the file is reached, reset the bufferedReader
+<span class="fc bfc" id="L74" title="All 2 branches covered.">            if(word==null) {</span>
+<span class="fc" id="L75">                this.bufferedReader.close();</span>
+<span class="fc" id="L76">                this.bufferedReader = new BufferedReader(new FileReader(this.fileName));</span>
+<span class="fc" id="L77">                continue;</span>
+            }
+
+            try {
+<span class="fc" id="L81">                checkWord(word);</span>
+<span class="fc" id="L82">                break;</span>
+<span class="fc" id="L83">            } catch(InvalidWordException e){</span>
+                // the word was invalid, skip and try another
+            }
+<span class="fc" id="L86">        }</span>
+<span class="fc" id="L87">        System.out.println(&quot;provided word&quot;);</span>
+<span class="fc" id="L88">        return new Word(word, WordProvider.random.nextFloat(), headroom, task);</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
