@@ -101,7 +101,9 @@ public class GameTest {
         Assertions.assertNull(result);
     }
 
-    //
+    /**
+     * Test: ensure the ending task is created on every word after creating new instances of Word
+     */
     @Test
     public void testValidEndTask(){
         // Verifies that the end-of-time task is executed correctly when the timer runs out
