@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="working test">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/highscore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscore.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/tqs/model/Word.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/flow.plantuml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/flow.plantuml" beforeDir="false" />
-    </list>
+    <list default="true" id="b8ee7f7a-590d-457e-b485-c6ff6dba8605" name="Changes" comment="final" />
     <list id="f9e9d20d-300f-4c91-a886-f79d545802af" name="Changes by h_sar" comment="Changes by h_sar" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +165,7 @@
       <workItem from="1701081775755" duration="1195000" />
       <workItem from="1701083249259" duration="9019000" />
       <workItem from="1701121974353" duration="170000" />
-      <workItem from="1701122157819" duration="1924000" />
+      <workItem from="1701122157819" duration="2240000" />
     </task>
     <task id="LOCAL-00001" summary="fix word test">
       <option name="closed" value="true" />
@@ -253,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701122035570</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="final">
+      <option name="closed" value="true" />
+      <created>1701124406550</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701124406550</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +268,8 @@
     <MESSAGE value="mock test" />
     <MESSAGE value="Changes by h_sar" />
     <MESSAGE value="working test" />
-    <option name="LAST_COMMIT_MESSAGE" value="working test" />
+    <MESSAGE value="final" />
+    <option name="LAST_COMMIT_MESSAGE" value="final" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TSQ$All_in_AstroType__4_.ic" NAME="All in AstroType (4) Coverage Results" MODIFIED="1701121099601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

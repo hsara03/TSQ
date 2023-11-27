@@ -65,7 +65,7 @@ public class WordProviderTest {
         try {
             this.provider.readWordFile("src/main/resources/words.mini.txt");
             for (int i = 0; i < 10; i++) {
-                assert this.provider.getNextWord() != null;
+                assertNotNull(this.provider.getNextWord());
             }
         } catch (Exception exception){
             // unexpected
