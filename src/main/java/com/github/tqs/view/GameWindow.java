@@ -1,9 +1,11 @@
 package com.github.tqs.view;
 
-import com.github.tqs.exceptions.game.NoTargetWordException;
-import com.github.tqs.exceptions.provider.NotEnoughWordsException;
-import com.github.tqs.exceptions.provider.UnableToReadWordsException;
-import com.github.tqs.exceptions.word.InvalidNextCharException;
+import com.github.tqs.controller.Game;
+import com.github.tqs.model.exceptions.game.NoTargetWordException;
+import com.github.tqs.model.exceptions.provider.NoWordsException;
+import com.github.tqs.model.exceptions.provider.NotEnoughWordsException;
+import com.github.tqs.model.exceptions.provider.UnableToReadWordsException;
+import com.github.tqs.model.exceptions.word.InvalidNextCharException;
 import com.github.tqs.model.*;
 
 import javax.sound.sampled.AudioSystem;
@@ -16,8 +18,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 import java.util.Timer;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
 public class GameWindow extends Observable implements GameListener {
 
@@ -39,7 +39,7 @@ public class GameWindow extends Observable implements GameListener {
         return game;
     }
 
-    public GameWindow(Difficulty difficulty, Runnable endMethod) throws IOException, NotEnoughWordsException, UnableToReadWordsException, FontFormatException {
+    public GameWindow(Difficulty difficulty, Runnable endMethod) throws IOException, NotEnoughWordsException, UnableToReadWordsException, FontFormatException, NoWordsException {
         this.endMethod=endMethod;
         this.game=new Game("src/main/resources/words.txt", 10, difficulty);
         this.game.addListener(this);

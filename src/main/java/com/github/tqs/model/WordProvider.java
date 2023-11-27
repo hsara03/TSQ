@@ -1,8 +1,9 @@
 package com.github.tqs.model;
 
-import com.github.tqs.exceptions.word.InvalidWordException;
-import com.github.tqs.exceptions.provider.NotEnoughWordsException;
-import com.github.tqs.exceptions.provider.UnableToReadWordsException;
+import com.github.tqs.model.exceptions.provider.NoWordsException;
+import com.github.tqs.model.exceptions.word.InvalidWordException;
+import com.github.tqs.model.exceptions.provider.NotEnoughWordsException;
+import com.github.tqs.model.exceptions.provider.UnableToReadWordsException;
 
 import java.io.*;
 import java.util.Random;
@@ -46,6 +47,7 @@ public class WordProvider {
                     // ignore word, invalid
                 }
             }
+            if(validWords==0) throw new NoWordsException();
             if(validWords<minimumWords) throw new NotEnoughWordsException();
         } catch (IOException exception){
             throw new UnableToReadWordsException();

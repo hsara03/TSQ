@@ -1,8 +1,8 @@
 package com.github.tqs.model;
 
-import com.github.tqs.exceptions.word.AlreadySpelledException;
-import com.github.tqs.exceptions.word.InvalidNextCharException;
-import com.github.tqs.exceptions.word.RanOutOfTimeException;
+import com.github.tqs.model.exceptions.word.AlreadySpelledException;
+import com.github.tqs.model.exceptions.word.InvalidNextCharException;
+import com.github.tqs.model.exceptions.word.RanOutOfTimeException;
 
 import java.util.Timer;
 import java.util.TimerTask;

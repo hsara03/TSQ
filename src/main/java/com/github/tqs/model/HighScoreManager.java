@@ -1,5 +1,8 @@
 package com.github.tqs.model;
 
+import com.github.tqs.model.exceptions.score.InvalidNameException;
+import com.github.tqs.model.exceptions.score.ScoreDataInvalid;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.util.Scanner;
@@ -8,11 +11,11 @@ public class HighScoreManager {
 
     private static String path = "highscore.txt";
     private static HighScoreManager instance;
-
+    private String playerName;
     private String filePath;
     private File highscoreFile;
-    private int highscore;
-    private int lastScore;
+    private Score highscore;
+    private Score lastScore;
 
     private HighScoreManager(String filePath) throws IOException {
         this.filePath = filePath;
@@ -22,21 +25,44 @@ public class HighScoreManager {
         }
         this.highscoreFile.setWritable(true);
         this.highscoreFile.setReadable(true);
-        this.lastScore=-1;
+
+        // Initialize lastScore with default values
+        this.lastScore=new Score(null, -1);
     }
 
+    private File createFile() throws IOException {
+        this.highscoreFile=new File(this.filePath);
+        if(!Files.isRegularFile(this.highscoreFile.toPath())){
+            Files.createFile(this.highscoreFile.toPath());
+        }
+        return this.highscoreFile;
+    }
+
+    // Set the player name for scoring, throws exception if the name is invalid
+    public void setPlayerName(String name) throws InvalidNameException {
+        if(!name.matches(getPlayerNameRegex())) throw new InvalidNameException();
+        this.playerName=name;
+        this.lastScore=new Score(name, this.lastScore.score);
+    }
+
+
+    private String getPlayerNameRegex(){
+        return "^[A-Za-z0-9]{1,16}+$";
+    }
+
+    // Reset the current score to default values when the player start to play
     public void resetCurrentScore(){
-        this.lastScore=0;
+        this.lastScore=new Score(this.playerName, 0);
     }
 
     public void incrementCurrentScore(int amount){
-        this.lastScore+=amount;
+        this.lastScore = new Score(this.playerName, this.lastScore.score + amount);
     }
 
     /**
      * will return -1 if no last score is present
      */
-    public int getLastScore(){
+    public Score getLastScore(){
         return this.lastScore;
     }
 
@@ -47,26 +73,62 @@ public class HighScoreManager {
         return HighScoreManager.instance;
     }
 
-    public void setHighscore(int score) throws IOException {
+    // Set the highscore if the provided score is higher, write to the highscore file
+    public void setHighscore(int score) throws IOException, InvalidNameException {
+        String currentName = this.playerName;
+        if(this.playerName==null) throw new InvalidNameException();
         this.readHighscore();
-        if(this.highscore<score) this.highscore=score;
+        this.playerName=currentName;
+        if(this.highscore.score<score) this.highscore=new Score(playerName, score);
+        this.lastScore=new Score(currentName, score);
         BufferedWriter writer = new BufferedWriter(new FileWriter(this.highscoreFile, true));
         PrintWriter out = new PrintWriter(writer);
-        out.println(score);
+        out.println(score + " " + this.playerName);
         writer.close();
     }
 
-    public int readHighscore() throws IOException {
-        this.highscore=-1;
-        Scanner myReader = new Scanner(this.highscoreFile);
-        while (myReader.hasNextLine()) {
-            String data = myReader.nextLine();
-            int score =Integer.parseInt(data);
-            if(score>this.highscore) this.highscore=score;
-            this.lastScore = score;
+    // Read the highscore from the file, update highscore and lastScore
+    public Score readHighscore() throws IOException {
+        this.highscore=new Score(null, -1);
+        try {
+            Scanner scoreReader;
+            try {
+                scoreReader = new Scanner(this.highscoreFile);
+            } catch (FileNotFoundException fileNotFoundException){
+                this.createFile();
+                scoreReader = new Scanner(this.highscoreFile);
+            }
+            while (scoreReader.hasNextLine()) {
+                String data = scoreReader.nextLine();
+                String[] parts = data.split(" ");
+                if(parts.length<2) {
+                    throw new ScoreDataInvalid();
+                }
+                int score = 0;
+                try {
+                    score = Integer.parseInt(parts[0]);
+                } catch (NumberFormatException exception){
+                    throw new ScoreDataInvalid();
+                }
+                if(!parts[1].matches(getPlayerNameRegex())) {
+                    throw new ScoreDataInvalid();
+                }
+                String name = parts[1];
+                if(score>this.highscore.score) {
+                    this.highscore=new Score(name, score);
+                }
+                this.lastScore = new Score(name, score);
+                this.playerName = name;
+            }
+            scoreReader.close();
+        } catch (IOException exception) {
+            throw exception;
+        } catch (ScoreDataInvalid exception) {
+            // clear invalid highscore data
+            PrintWriter writer = new PrintWriter(highscoreFile);
+            writer.print("");
+            writer.close();
         }
-        myReader.close();
-        if(this.highscore<0) this.highscore=0;
         return this.highscore;
     }
 }

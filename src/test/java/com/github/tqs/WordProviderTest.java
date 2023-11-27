@@ -100,7 +100,7 @@ public class WordProviderTest {
             result = exception;
         }
         assertNotNull(result);
-        assertTrue(result instanceof NotEnoughWordsException);
+        assertTrue(result instanceof NoWordsException);
     }
 
     // Test case to check if reading a file with too few words throws NotEnoughWordsException

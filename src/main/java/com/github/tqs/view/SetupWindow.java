@@ -1,7 +1,10 @@
 package com.github.tqs.view;
 
+import com.github.tqs.model.exceptions.score.InvalidNameException;
+import com.github.tqs.view.exceptions.InputCancelledException;
 import com.github.tqs.model.Difficulty;
 import com.github.tqs.model.HighScoreManager;
+import com.github.tqs.model.Score;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -20,12 +23,32 @@ public class SetupWindow {
         this.highScoreManager=HighScoreManager.getInstance();
     }
 
-    public Difficulty pickDifficulty() throws IOException{
-        int highScore= highScoreManager.readHighscore(); // leer puntuacion maxima
-        int score = highScoreManager.getLastScore();
+    // Shows the setup window, skipping the username input is possible
+    public Difficulty showSkippingUsername() throws IOException, InputCancelledException {
+        try {
+            return this.pickDifficulty();
+        } catch (InputCancelledException exception){
+            return this.show();
+        }
+    }
+
+    // Shows the full setup window, including username input
+    public Difficulty show() throws IOException, InputCancelledException {
+        this.pickUsername();
+        try {
+            return this.pickDifficulty();
+        } catch (InputCancelledException exception){
+            return this.show();
+        }
+    }
+
+    // Prompts the user to pick a difficulty level
+    private Difficulty pickDifficulty() throws IOException, InputCancelledException {
+        Score highScore= highScoreManager.readHighscore();
+        Score score = highScoreManager.getLastScore();
         List<String> messages = new ArrayList<>();
-        if(highScore>0) messages.add("La puntuación más alta es " + highScore);
-        if(score>=0) messages.add("La puntuación de la última partida fue " + score);
+        if(highScore.hasData()) messages.add("La puntuación más alta es de " + highScore.name + ": " + highScore.score);
+        if(score.hasData()) messages.add("La puntuación de la última partida de " + score.name + " fue " + score.score);
         messages.add("Selecciona la dificultad del juego:");
         Map<String, Difficulty> options = new HashMap<>();
         options.put("Fácil", Difficulty.EASY);
@@ -38,7 +61,28 @@ public class SetupWindow {
                 null,
                 options.keySet().toArray(),
                 "Mediano");
+        if (difficulty==null) {
+            throw new InputCancelledException();
+        }
         return options.get(difficulty);
+    }
+
+    // Prompts the user to input username
+    private void pickUsername() throws InputCancelledException, IOException {
+        highScoreManager.readHighscore();
+        try {
+            String name = null;
+            if(highScoreManager.getLastScore().hasData()){
+                name=highScoreManager.getLastScore().name;
+            }
+            System.out.println("last name " + name);
+            String playerName = JOptionPane.showInputDialog(null, "Ingrese su nombre de jugador:", name);
+            if(playerName==null) throw new InputCancelledException();
+            highScoreManager.setPlayerName(playerName);
+        } catch (InvalidNameException exception){
+            JOptionPane.showMessageDialog(null,"El nombre del jugador no es válido, debe tener de 1-16 carácteres alfanumericos, sin carácteres especiales");
+            this.pickUsername();
+        }
     }
 
 }
