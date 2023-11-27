@@ -23,8 +23,9 @@ public class WordProviderTest {
     private BufferedReader mockedReader;
 
 
-
-    // Setup method to initialize common resources before each test
+    /**
+     * Setup method to initialize common resources before each test
+     */
     @BeforeEach
     public void setUp() throws IOException {
         // Mocking a BufferedReader to simulate reading lines from a file
@@ -36,7 +37,9 @@ public class WordProviderTest {
         invalidProvider = new WordProvider(5, mockedReader);
     }
 
-    // Test case to check if getNextWord() returns a non-null Word with content "test"
+    /**
+     * Test case to check if getNextWord() returns a non-null Word with content "test"
+     */
     @Test
     public void testGetNextWord() throws IOException {
         Word word = provider.getNextWord();
@@ -45,7 +48,9 @@ public class WordProviderTest {
     }
 
 
-    // Test case to check if reading a valid word list file doesn't throw an exception
+    /**
+     * Test case to check if reading a valid word list file doesn't throw an exception
+     */
     @Test
     public void testValidFile() {
         Exception result = null;
@@ -58,7 +63,9 @@ public class WordProviderTest {
         assertNull(result);
     }
 
-    // Test case to check if reading multiple words from a valid file doesn't throw an exception
+    /**
+     * Test case to check if reading multiple words from a valid file doesn't throw an exception
+     */
     @Test
     public void testNextWords() {
         Exception result = null;
@@ -75,7 +82,9 @@ public class WordProviderTest {
     }
 
 
-    // Test case to check if reading an invalid word list file throws UnableToReadWordsException
+    /**
+     * Test case to check if reading an invalid word list file throws UnableToReadWordsException
+     */
     @Test
     public void testInvalidFile() {
         Exception result = null;
@@ -89,7 +98,9 @@ public class WordProviderTest {
         assertTrue(result instanceof UnableToReadWordsException);
     }
 
-    // Test case to check if reading an empty word list file throws NoWordsException
+    /**
+     * Test case to check if reading an empty word list file throws NoWordsException
+     */
     @Test
     public void testEmptyWords() {
         Exception result = null;
@@ -103,7 +114,9 @@ public class WordProviderTest {
         assertTrue(result instanceof NoWordsException);
     }
 
-    // Test case to check if reading a file with too few words throws NotEnoughWordsException
+    /**
+     * Test case to check if reading a file with too few words throws NotEnoughWordsException
+     */
     @Test
     public void testNotEnoughWords() {
         Exception result = null;
@@ -119,7 +132,9 @@ public class WordProviderTest {
     }
 
 
-    // Test case to check if reading a file with not enough valid words throws NotEnoughWordsException
+    /**
+     * Test case to check if reading a file with not enough valid words throws NotEnoughWordsException
+     */
     @Test
     public void testNotEnoughValidWords() {
         Exception result = null;

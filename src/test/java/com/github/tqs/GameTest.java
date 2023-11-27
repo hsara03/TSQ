@@ -125,6 +125,9 @@ public class GameTest {
         assertNull(result);
     }
 
+    /**
+     * Test: make sure the correct score is added upon spelling a word
+     */
     @Test()
     public void testSpellScore() {
         // Verifies that the game calculates the score correctly when spelling a word
@@ -149,6 +152,14 @@ public class GameTest {
         assertNull(result);
     }
 
+    /**
+     * Test: we create a mock window in order to create a fake listener in order to make sure all events
+     * are triggered, we will trigger:
+     * 1. valid character typed (any iteration of the char-by-char loop)
+     * 2. invalid character typed (2nd iteration of the char-by-char loop)
+     * 3. word fully typed (last iteration of the char-by-char loop)
+     * 4. game ended (after the word loop)
+     */
     @Test()
     public void testWindowListener(){
         GameWindow mockWindow = mock(GameWindow.class);
